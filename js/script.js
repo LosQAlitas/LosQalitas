@@ -95,42 +95,27 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
-          <input
-            type="checkbox"
-            value="BBQ"
-          >
+          <input type="checkbox" value="BBQ">
           <span>BBQ</span>
         </label>
 
         <label class="opcion-salsa">
-          <input
-            type="checkbox"
-            value="Búfalo"
-          >
+          <input type="checkbox" value="Búfalo">
           <span>Búfalo</span>
         </label>
 
         <label class="opcion-salsa">
-          <input
-            type="checkbox"
-            value="Salsa inglesa"
-          >
+          <input type="checkbox" value="Salsa inglesa">
           <span>Salsa inglesa</span>
         </label>
 
         <label class="opcion-salsa">
-          <input
-            type="checkbox"
-            value="Salsa Maggie"
-          >
+          <input type="checkbox" value="Salsa Maggie">
           <span>Salsa Maggie</span>
         </label>
 
         <label class="opcion-salsa">
-          <input
-            type="checkbox"
-            value="BBQ Picoso"
-          >
+          <input type="checkbox" value="BBQ Picoso">
           <span>BBQ Picoso</span>
         </label>
 
@@ -154,42 +139,27 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
-          <input
-            type="checkbox"
-            value="BBQ"
-          >
+          <input type="checkbox" value="BBQ">
           <span>BBQ</span>
         </label>
 
         <label class="opcion-salsa">
-          <input
-            type="checkbox"
-            value="Búfalo"
-          >
+          <input type="checkbox" value="Búfalo">
           <span>Búfalo</span>
         </label>
 
         <label class="opcion-salsa">
-          <input
-            type="checkbox"
-            value="Salsa inglesa"
-          >
+          <input type="checkbox" value="Salsa inglesa">
           <span>Salsa inglesa</span>
         </label>
 
         <label class="opcion-salsa">
-          <input
-            type="checkbox"
-            value="Salsa Maggie"
-          >
+          <input type="checkbox" value="Salsa Maggie">
           <span>Salsa Maggie</span>
         </label>
 
         <label class="opcion-salsa">
-          <input
-            type="checkbox"
-            value="BBQ Picoso"
-          >
+          <input type="checkbox" value="BBQ Picoso">
           <span>BBQ Picoso</span>
         </label>
 
@@ -209,27 +179,21 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
-
           <input
             type="radio"
             name="cerveza"
             value="Modelo"
           >
-
           <span>🍺 Modelo</span>
-
         </label>
 
         <label class="opcion-salsa">
-
           <input
             type="radio"
             name="cerveza"
             value="Victoria"
           >
-
           <span>🍺 Victoria</span>
-
         </label>
 
       </div>
@@ -242,39 +206,30 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
-
           <input
             type="radio"
             name="sabor"
             value="Cereza"
           >
-
           <span>🍒 Cereza</span>
-
         </label>
 
         <label class="opcion-salsa">
-
           <input
             type="radio"
             name="sabor"
             value="Sandía"
           >
-
           <span>🍉 Sandía</span>
-
         </label>
 
         <label class="opcion-salsa">
-
           <input
             type="radio"
             name="sabor"
             value="Tamarindo"
           >
-
           <span>🥭 Tamarindo</span>
-
         </label>
 
       </div>
@@ -297,51 +252,39 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
-
           <input
             type="radio"
             name="untable"
             value="Cajeta"
           >
-
           <span>🥄 Cajeta</span>
-
         </label>
 
         <label class="opcion-salsa">
-
           <input
             type="radio"
             name="untable"
             value="Lechera"
           >
-
           <span>🥛 Lechera</span>
-
         </label>
 
         <label class="opcion-salsa">
-
           <input
             type="radio"
             name="untable"
             value="Philadelphia"
           >
-
           <span>🧀 Philadelphia</span>
-
         </label>
 
         <label class="opcion-salsa">
-
           <input
             type="radio"
             name="untable"
             value="Nutella"
           >
-
           <span>🍫 Nutella</span>
-
         </label>
 
       </div>
@@ -358,39 +301,30 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
-
           <input
             type="radio"
             name="fruta"
             value="Fresa"
           >
-
           <span>🍓 Fresa</span>
-
         </label>
 
         <label class="opcion-salsa">
-
           <input
             type="radio"
             name="fruta"
             value="Durazno"
           >
-
           <span>🍑 Durazno</span>
-
         </label>
 
         <label class="opcion-salsa">
-
           <input
             type="radio"
             name="fruta"
             value="Plátano"
           >
-
           <span>🍌 Plátano</span>
-
         </label>
 
       </div>
@@ -407,27 +341,21 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
-
           <input
             type="radio"
             name="topping"
             value="Nuez"
           >
-
           <span>🥜 Nuez</span>
-
         </label>
 
         <label class="opcion-salsa">
-
           <input
             type="radio"
             name="topping"
             value="Chispas de chocolate"
           >
-
           <span>🍫 Chispas de chocolate</span>
-
         </label>
 
       </div>
@@ -454,55 +382,43 @@ function abrirConfiguracion(nombre, precio) {
         <div class="lista-salsas">
 
           <label class="opcion-salsa">
-
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Cajeta"
               data-precio="5"
             >
-
             <span>🥄 Cajeta +$5</span>
-
           </label>
 
           <label class="opcion-salsa">
-
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Lechera"
               data-precio="5"
             >
-
             <span>🥛 Lechera +$5</span>
-
           </label>
 
           <label class="opcion-salsa">
-
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Philadelphia"
               data-precio="5"
             >
-
             <span>🧀 Philadelphia +$5</span>
-
           </label>
 
           <label class="opcion-salsa">
-
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Nutella"
               data-precio="10"
             >
-
             <span>🍫 Nutella +$10</span>
-
           </label>
 
         </div>
@@ -515,42 +431,33 @@ function abrirConfiguracion(nombre, precio) {
         <div class="lista-salsas">
 
           <label class="opcion-salsa">
-
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Fresa"
               data-precio="10"
             >
-
             <span>🍓 Fresa +$10</span>
-
           </label>
 
           <label class="opcion-salsa">
-
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Durazno"
               data-precio="5"
             >
-
             <span>🍑 Durazno +$5</span>
-
           </label>
 
           <label class="opcion-salsa">
-
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Plátano"
               data-precio="5"
             >
-
             <span>🍌 Plátano +$5</span>
-
           </label>
 
         </div>
@@ -563,29 +470,23 @@ function abrirConfiguracion(nombre, precio) {
         <div class="lista-salsas">
 
           <label class="opcion-salsa">
-
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Nuez"
               data-precio="5"
             >
-
             <span>🥜 Nuez +$5</span>
-
           </label>
 
           <label class="opcion-salsa">
-
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Chispas de chocolate"
               data-precio="5"
             >
-
             <span>🍫 Chispas de chocolate +$5</span>
-
           </label>
 
         </div>
@@ -914,6 +815,16 @@ seguirComprando.addEventListener('click', () => {
 });
 
 // ==========================================
+// SISTEMA DE WHATSAPP
+// ==========================================
+
+function enviarWhatsApp(numero, mensaje) {
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+
+  window.open(url, '_blank');
+}
+
+// ==========================================
 // CREAR TEXTO DE PRODUCTOS
 // ==========================================
 
@@ -942,19 +853,98 @@ function calcularTotal(productos) {
 }
 
 // ==========================================
-// HACER PEDIDO
+// CREAR BOTÓN DE ESTACIÓN
 // ==========================================
 
-hacerPedido.addEventListener('click', async () => {
-  if (pedido.length === 0) {
-    alert('Tu pedido está vacío.');
+function crearBotonEstacion(contenedor, nombreEstacion, numeros, mensaje) {
+  const boton = document.createElement('button');
 
+  boton.type = 'button';
+
+  boton.textContent = `📱 Enviar ${nombreEstacion}`;
+
+  boton.style.display = 'block';
+  boton.style.width = '100%';
+  boton.style.margin = '10px 0';
+  boton.style.padding = '15px';
+  boton.style.border = 'none';
+  boton.style.borderRadius = '10px';
+  boton.style.cursor = 'pointer';
+  boton.style.fontSize = '16px';
+  boton.style.fontWeight = 'bold';
+
+  boton.addEventListener('click', () => {
+    // Abrir WhatsApp para cada número
+    numeros.forEach((numero, indice) => {
+      setTimeout(() => {
+        const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
+
+        window.open(url, '_blank');
+      }, indice * 700);
+    });
+
+    boton.textContent = `✅ ${nombreEstacion} enviado`;
+
+    boton.disabled = true;
+  });
+
+  contenedor.appendChild(boton);
+}
+
+// ==========================================
+// CREAR SECCIÓN DE ESTACIÓN
+// ==========================================
+
+function crearSeccionEstacion(contenedor, titulo, productosEstacion, numeros, numeroPedido) {
+  if (productosEstacion.length === 0) {
     return;
   }
 
-  // ======================================
-  // NÚMERO DE PEDIDO
-  // ======================================
+  const seccion = document.createElement('div');
+
+  seccion.style.marginBottom = '25px';
+
+  const total = calcularTotal(productosEstacion);
+
+  const mensaje = `🔥 LOS +QALITAS
+
+🧾 PEDIDO #${numeroPedido}
+
+📍 ${titulo}
+
+${crearTextoProductos(productosEstacion)}
+
+TOTAL DE ESTA ESTACIÓN: $${total}
+
+⚠️ PEDIDO #${numeroPedido}`;
+
+  const encabezado = document.createElement('h3');
+
+  encabezado.textContent = titulo;
+
+  seccion.appendChild(encabezado);
+
+  const info = document.createElement('p');
+
+  info.textContent = `${productosEstacion.length} producto(s) · ${numeros.length} WhatsApp`;
+
+  seccion.appendChild(info);
+
+  // UN SOLO BOTÓN POR ESTACIÓN
+  crearBotonEstacion(seccion, titulo, numeros, mensaje);
+
+  contenedor.appendChild(seccion);
+}
+
+// ==========================================
+// HACER PEDIDO - WHATSAPP DIRECTO
+// ==========================================
+
+hacerPedido.addEventListener('click', () => {
+  if (pedido.length === 0) {
+    alert('Tu pedido está vacío.');
+    return;
+  }
 
   let numeroPedido = Number(localStorage.getItem('numeroPedidoLosQalitas')) || 0;
 
@@ -962,152 +952,57 @@ hacerPedido.addEventListener('click', async () => {
 
   localStorage.setItem('numeroPedidoLosQalitas', numeroPedido);
 
-  // ======================================
-  // CREAR TEXTO COMPLETO
-  // ======================================
+  const total = pedido.reduce((suma, producto) => suma + producto.precio, 0);
 
-  const textoPedido = crearTextoProductos(pedido);
+  let mensaje = `🔥 LOS +QALITAS\n\n🧾 PEDIDO #${numeroPedido}\n\n`;
 
-  const total = calcularTotal(pedido);
+  pedido.forEach((producto, indice) => {
+    mensaje += `${indice + 1}. ${producto.nombre}\n`;
 
-  // ======================================
-  // MENSAJE DE WHATSAPP
-  // ======================================
-
-  const mensajeWhatsApp = `🔥 LOS +QALITAS
-
-🧾 PEDIDO #${numeroPedido}
-
-📦 PEDIDO COMPLETO
-
-${textoPedido}💰 TOTAL: $${total}
-
-⚠️ PEDIDO #${numeroPedido}`;
-
-  // ======================================
-  // PEDIDO PARA LA CENTRAL
-  // ======================================
-
-  const pedidoParaEnviar = {
-    numeroPedido: numeroPedido,
-
-    productos: pedido.map((producto) => ({
-      nombre: producto.nombre,
-
-      precio: producto.precio,
-
-      detalle: producto.detalle || '',
-    })),
-  };
-
-  try {
-    hacerPedido.disabled = true;
-
-    hacerPedido.textContent = 'Enviando pedido...';
-
-    // ====================================
-    // ENVIAR A LA CENTRAL
-    // ====================================
-
-    const respuesta = await fetch('http://localhost:3000/pedido', {
-      method: 'POST',
-
-      headers: {
-        'Content-Type': 'application/json',
-      },
-
-      body: JSON.stringify(pedidoParaEnviar),
-    });
-
-    if (!respuesta.ok) {
-      throw new Error(`Error HTTP ${respuesta.status}`);
+    if (producto.detalle) {
+      mensaje += `   ${producto.detalle}\n`;
     }
 
-    const resultado = await respuesta.json();
+    mensaje += `   Precio: $${producto.precio}\n\n`;
+  });
 
-    console.log('🔥 PEDIDO ENVIADO A LA CENTRAL:', resultado);
+  mensaje += `💰 TOTAL: $${total}\n\n⚠️ PEDIDO #${numeroPedido}`;
 
-    // ====================================
-    // ABRIR WHATSAPP
-    // ====================================
+  // ÚNICO WHATSAPP DE LOS +QALITAS
+  const numeroWhatsApp = '525645973242';
 
-    const numeroWhatsApp = '525645973242';
+  const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
 
-    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensajeWhatsApp)}`;
+  // Abrir WhatsApp directamente.
+  // Envío directo a WhatsApp desde GitHub Pages.
+  window.open(url, '_blank');
 
-    window.open(urlWhatsApp, '_blank');
+  // Mostrar confirmación dentro del pedido
+  const contenido = modalPedido.querySelector('.modal-contenido');
 
-    // ====================================
-    // MOSTRAR CONFIRMACIÓN
-    // ====================================
+  const panelAnterior = document.getElementById('panel-central-pedido');
 
-    const contenido = modalPedido.querySelector('.modal-contenido');
-
-    const panelAnterior = document.getElementById('panel-central-pedido');
-
-    if (panelAnterior) {
-      panelAnterior.remove();
-    }
-
-    const panel = document.createElement('div');
-
-    panel.id = 'panel-central-pedido';
-
-    panel.style.marginTop = '20px';
-
-    panel.style.padding = '20px';
-
-    panel.style.borderRadius = '15px';
-
-    panel.style.background = 'rgba(255,255,255,0.08)';
-
-    panel.style.textAlign = 'center';
-
-    panel.innerHTML = `
-
-        <h2>
-          🔥 PEDIDO #${numeroPedido}
-        </h2>
-
-        <p>
-          ✅ Pedido enviado correctamente
-        </p>
-
-        <p>
-          📱 El pedido fue preparado
-          para WhatsApp.
-        </p>
-
-        <p>
-          📦 Todo el pedido está
-          en un solo mensaje.
-        </p>
-
-      `;
-
-    contenido.appendChild(panel);
-
-    alert(
-      `🔥 PEDIDO #${numeroPedido}
-
-Tu pedido fue enviado correctamente.
-
-📱 WhatsApp:
-5645973242`,
-    );
-  } catch (error) {
-    console.error('❌ Error enviando el pedido:', error);
-
-    alert(
-      `❌ No se pudo enviar el pedido #${numeroPedido}.
-
-Asegúrate de que la Central Los +Qalitas esté funcionando en:
-
-http://localhost:3000`,
-    );
-  } finally {
-    hacerPedido.disabled = false;
-
-    hacerPedido.textContent = 'Hacer pedido';
+  if (panelAnterior) {
+    panelAnterior.remove();
   }
+
+  const panel = document.createElement('div');
+
+  panel.id = 'panel-central-pedido';
+  panel.style.marginTop = '20px';
+  panel.style.padding = '20px';
+  panel.style.borderRadius = '15px';
+  panel.style.background = 'rgba(255,255,255,0.08)';
+  panel.style.textAlign = 'center';
+
+  panel.innerHTML = `
+    <h2>🔥 PEDIDO #${numeroPedido}</h2>
+    <p>✅ Pedido preparado correctamente.</p>
+    <p>📱 Se abrió WhatsApp para enviarlo.</p>
+    <p>💰 Total: $${total}</p>
+  `;
+
+  contenido.appendChild(panel);
+
+  alert(`🔥 PEDIDO #${numeroPedido}\n\n` + `Tu pedido está listo.\n\n` + `📱 Se abrió WhatsApp para enviarlo.\n\n` + `💰 Total: $${total}`);
 });
