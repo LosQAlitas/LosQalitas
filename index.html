@@ -5,11 +5,216 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Los +Qalitas</title>
+
+    <link rel="stylesheet" href="css/style.css" />
   </head>
 
   <body>
-    <h1>Los +Qalitas</h1>
+    <!-- =========================
+       ENCABEZADO
+  ========================== -->
 
-    <p>+Q Hambre, +Q Alitas</p>
+    <header class="hero">
+      <img src="assets/images/logo.png" alt="Los +Qalitas" class="logo" />
+
+      <h1>+Q Hambre, +Q Alitas</h1>
+
+      <p>Alitas, brochetas, crepas, waffles y mucho más.</p>
+    </header>
+
+    <!-- =========================
+       MENÚ
+  ========================== -->
+
+    <main>
+      <section class="menu">
+        <h2>¿Qué se te antoja?</h2>
+
+        <!-- =====================
+           ALITAS
+      ====================== -->
+
+        <article class="producto" data-nombre="Alitas" data-precio="75" data-configurable="true">
+          <div class="producto-info">
+            <h3>🍗 Alitas</h3>
+            <p>5 piezas</p>
+          </div>
+
+          <div class="producto-precio">
+            <strong>$75</strong>
+
+            <button type="button" class="btn-agregar">+</button>
+          </div>
+        </article>
+
+        <!-- =====================
+           CERILLOS
+      ====================== -->
+
+        <article class="producto" data-nombre="Cerillos" data-precio="45" data-configurable="true">
+          <div class="producto-info">
+            <h3>🍺 Cerillos</h3>
+            <p>Elige tu cerveza y sabor</p>
+          </div>
+
+          <div class="producto-precio">
+            <strong>$45</strong>
+
+            <button type="button" class="btn-agregar">+</button>
+          </div>
+        </article>
+
+        <!-- =====================
+           BROCHETAS
+      ====================== -->
+
+        <article class="producto" data-nombre="Brochetas" data-precio="70" data-configurable="true">
+          <div class="producto-info">
+            <h3>🍢 Brochetas</h3>
+            <p>Bien servidas</p>
+          </div>
+
+          <div class="producto-precio">
+            <strong>$70</strong>
+
+            <button type="button" class="btn-agregar">+</button>
+          </div>
+        </article>
+
+        <!-- =====================
+           CREPAS
+      ====================== -->
+
+        <article class="producto" data-nombre="Crepas" data-precio="50">
+          <div class="producto-info">
+            <h3>🥞 Crepas</h3>
+            <p>Algo dulce para cerrar</p>
+          </div>
+
+          <div class="producto-precio">
+            <strong>$50</strong>
+
+            <button type="button" class="btn-agregar">+</button>
+          </div>
+        </article>
+
+        <!-- =====================
+           WAFFLES
+      ====================== -->
+
+        <article class="producto" data-nombre="Waffles" data-precio="55">
+          <div class="producto-info">
+            <h3>🧇 Waffles</h3>
+            <p>Porque uno nunca es suficiente</p>
+          </div>
+
+          <div class="producto-precio">
+            <strong>$55</strong>
+
+            <button type="button" class="btn-agregar">+</button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <!-- =========================
+       BARRA DEL CARRITO
+  ========================== -->
+
+    <div class="carrito-barra">
+      <div class="carrito-info">
+        <span>🛒 Mi pedido</span>
+
+        <strong id="total-carrito">$0</strong>
+      </div>
+
+      <button type="button" class="btn-pedido">Ver pedido</button>
+    </div>
+
+    <!-- =========================
+       MODAL DE CONFIGURACIÓN
+  ========================== -->
+
+    <div id="modal-configuracion" class="modal">
+      <div class="modal-contenido">
+        <button type="button" id="cerrar-modal" class="cerrar-modal">×</button>
+
+        <h2 id="modal-titulo">🍗 Alitas</h2>
+
+        <p id="modal-descripcion">5 piezas</p>
+
+        <!--
+        Esta sección cambia automáticamente
+        dependiendo del producto.
+      -->
+
+        <div id="configuracion-producto">
+          <h3>¿Qué salsas quieres?</h3>
+
+          <p class="ayuda-salsas">Puedes elegir todas las que quieras.</p>
+
+          <div class="lista-salsas">
+            <label class="opcion-salsa">
+              <input type="checkbox" value="BBQ" />
+              <span>BBQ</span>
+            </label>
+
+            <label class="opcion-salsa">
+              <input type="checkbox" value="Búfalo" />
+              <span>Búfalo</span>
+            </label>
+
+            <label class="opcion-salsa">
+              <input type="checkbox" value="Salsa inglesa" />
+              <span>Salsa inglesa</span>
+            </label>
+
+            <label class="opcion-salsa">
+              <input type="checkbox" value="Salsa Maggie" />
+              <span>Salsa Maggie</span>
+            </label>
+
+            <label class="opcion-salsa">
+              <input type="checkbox" value="BBQ Picoso" />
+              <span>BBQ Picoso</span>
+            </label>
+          </div>
+        </div>
+
+        <button type="button" id="agregar-configurado" class="btn-agregar-configurado">Agregar al pedido</button>
+      </div>
+    </div>
+
+    <!-- =========================
+       MODAL DEL PEDIDO
+  ========================== -->
+
+    <div id="modal-pedido" class="modal">
+      <div class="modal-contenido modal-pedido-contenido">
+        <button type="button" id="cerrar-pedido" class="cerrar-modal">×</button>
+
+        <h2>🛒 Tu pedido</h2>
+
+        <div id="lista-pedido">
+          <!-- JavaScript coloca aquí los productos -->
+        </div>
+
+        <div class="pedido-total">
+          <span>Total</span>
+
+          <strong id="total-pedido"> $0 </strong>
+        </div>
+
+        <button type="button" id="seguir-comprando" class="btn-seguir">Seguir comprando</button>
+
+        <button type="button" id="hacer-pedido" class="btn-hacer-pedido">Hacer pedido</button>
+      </div>
+    </div>
+
+    <!-- =========================
+       JAVASCRIPT
+  ========================== -->
+
+    <script src="js/script.js"></script>
   </body>
 </html>
