@@ -1,14 +1,20 @@
 // ==========================================
 // LOS +QALITAS
-// SISTEMA DEL PEDIDO
+// SISTEMA COMPLETO DEL PEDIDO
+// ==========================================
+
+// ==========================================
+// ELEMENTOS
 // ==========================================
 
 const productos = document.querySelectorAll('.producto');
 
 const modalConfiguracion = document.getElementById('modal-configuracion');
+
 const modalPedido = document.getElementById('modal-pedido');
 
 const modalTitulo = document.getElementById('modal-titulo');
+
 const modalDescripcion = document.getElementById('modal-descripcion');
 
 const configuracionProducto = document.getElementById('configuracion-producto');
@@ -16,14 +22,19 @@ const configuracionProducto = document.getElementById('configuracion-producto');
 const agregarConfigurado = document.getElementById('agregar-configurado');
 
 const cerrarModal = document.getElementById('cerrar-modal');
+
 const cerrarPedido = document.getElementById('cerrar-pedido');
 
 const botonVerPedido = document.querySelector('.btn-pedido');
+
 const seguirComprando = document.getElementById('seguir-comprando');
+
 const hacerPedido = document.getElementById('hacer-pedido');
 
 const listaPedido = document.getElementById('lista-pedido');
+
 const totalCarrito = document.getElementById('total-carrito');
+
 const totalPedido = document.getElementById('total-pedido');
 
 // ==========================================
@@ -41,8 +52,11 @@ let productoActual = null;
 productos.forEach((producto) => {
   const boton = producto.querySelector('.btn-agregar');
 
+  if (!boton) return;
+
   boton.addEventListener('click', () => {
     const nombre = producto.dataset.nombre;
+
     const precio = Number(producto.dataset.precio);
 
     productoActual = {
@@ -55,13 +69,14 @@ productos.forEach((producto) => {
 });
 
 // ==========================================
-// CONFIGURACIÓN DEL PRODUCTO
+// CONFIGURACIÓN
 // ==========================================
 
 function abrirConfiguracion(nombre, precio) {
   configuracionProducto.innerHTML = '';
 
   modalTitulo.textContent = obtenerTitulo(nombre);
+
   modalDescripcion.textContent = obtenerDescripcion(nombre);
 
   // ========================================
@@ -80,27 +95,42 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="BBQ">
+          <input
+            type="checkbox"
+            value="BBQ"
+          >
           <span>BBQ</span>
         </label>
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="Búfalo">
+          <input
+            type="checkbox"
+            value="Búfalo"
+          >
           <span>Búfalo</span>
         </label>
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="Salsa inglesa">
+          <input
+            type="checkbox"
+            value="Salsa inglesa"
+          >
           <span>Salsa inglesa</span>
         </label>
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="Salsa Maggie">
+          <input
+            type="checkbox"
+            value="Salsa Maggie"
+          >
           <span>Salsa Maggie</span>
         </label>
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="BBQ Picoso">
+          <input
+            type="checkbox"
+            value="BBQ Picoso"
+          >
           <span>BBQ Picoso</span>
         </label>
 
@@ -124,27 +154,42 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="BBQ">
+          <input
+            type="checkbox"
+            value="BBQ"
+          >
           <span>BBQ</span>
         </label>
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="Búfalo">
+          <input
+            type="checkbox"
+            value="Búfalo"
+          >
           <span>Búfalo</span>
         </label>
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="Salsa inglesa">
+          <input
+            type="checkbox"
+            value="Salsa inglesa"
+          >
           <span>Salsa inglesa</span>
         </label>
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="Salsa Maggie">
+          <input
+            type="checkbox"
+            value="Salsa Maggie"
+          >
           <span>Salsa Maggie</span>
         </label>
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="BBQ Picoso">
+          <input
+            type="checkbox"
+            value="BBQ Picoso"
+          >
           <span>BBQ Picoso</span>
         </label>
 
@@ -164,21 +209,27 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="cerveza"
             value="Modelo"
           >
+
           <span>🍺 Modelo</span>
+
         </label>
 
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="cerveza"
             value="Victoria"
           >
+
           <span>🍺 Victoria</span>
+
         </label>
 
       </div>
@@ -191,30 +242,39 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="sabor"
             value="Cereza"
           >
+
           <span>🍒 Cereza</span>
+
         </label>
 
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="sabor"
             value="Sandía"
           >
+
           <span>🍉 Sandía</span>
+
         </label>
 
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="sabor"
             value="Tamarindo"
           >
+
           <span>🥭 Tamarindo</span>
+
         </label>
 
       </div>
@@ -237,39 +297,51 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="untable"
             value="Cajeta"
           >
+
           <span>🥄 Cajeta</span>
+
         </label>
 
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="untable"
             value="Lechera"
           >
+
           <span>🥛 Lechera</span>
+
         </label>
 
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="untable"
             value="Philadelphia"
           >
+
           <span>🧀 Philadelphia</span>
+
         </label>
 
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="untable"
             value="Nutella"
           >
+
           <span>🍫 Nutella</span>
+
         </label>
 
       </div>
@@ -286,30 +358,39 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="fruta"
             value="Fresa"
           >
+
           <span>🍓 Fresa</span>
+
         </label>
 
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="fruta"
             value="Durazno"
           >
+
           <span>🍑 Durazno</span>
+
         </label>
 
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="fruta"
             value="Plátano"
           >
+
           <span>🍌 Plátano</span>
+
         </label>
 
       </div>
@@ -326,21 +407,27 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="topping"
             value="Nuez"
           >
+
           <span>🥜 Nuez</span>
+
         </label>
 
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="topping"
             value="Chispas de chocolate"
           >
+
           <span>🍫 Chispas de chocolate</span>
+
         </label>
 
       </div>
@@ -348,7 +435,7 @@ function abrirConfiguracion(nombre, precio) {
 
       <div
         id="extras-contenedor"
-        style="display: none; margin-top: 25px;"
+        style="display:none; margin-top:25px;"
       >
 
         <h3>
@@ -360,127 +447,145 @@ function abrirConfiguracion(nombre, precio) {
         </p>
 
 
-        <h4 style="margin: 15px 0 8px;">
+        <h4>
           Untables extras
         </h4>
 
         <div class="lista-salsas">
 
           <label class="opcion-salsa">
+
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Cajeta"
               data-precio="5"
-              data-tipo="Untable"
             >
+
             <span>🥄 Cajeta +$5</span>
+
           </label>
 
           <label class="opcion-salsa">
+
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Lechera"
               data-precio="5"
-              data-tipo="Untable"
             >
+
             <span>🥛 Lechera +$5</span>
+
           </label>
 
           <label class="opcion-salsa">
+
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Philadelphia"
               data-precio="5"
-              data-tipo="Untable"
             >
+
             <span>🧀 Philadelphia +$5</span>
+
           </label>
 
           <label class="opcion-salsa">
+
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Nutella"
               data-precio="10"
-              data-tipo="Untable"
             >
+
             <span>🍫 Nutella +$10</span>
+
           </label>
 
         </div>
 
 
-        <h4 style="margin: 18px 0 8px;">
+        <h4>
           Frutas extras
         </h4>
 
         <div class="lista-salsas">
 
           <label class="opcion-salsa">
+
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Fresa"
               data-precio="10"
-              data-tipo="Fruta"
             >
+
             <span>🍓 Fresa +$10</span>
+
           </label>
 
           <label class="opcion-salsa">
+
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Durazno"
               data-precio="5"
-              data-tipo="Fruta"
             >
+
             <span>🍑 Durazno +$5</span>
+
           </label>
 
           <label class="opcion-salsa">
+
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Plátano"
               data-precio="5"
-              data-tipo="Fruta"
             >
+
             <span>🍌 Plátano +$5</span>
+
           </label>
 
         </div>
 
 
-        <h4 style="margin: 18px 0 8px;">
+        <h4>
           Toppings extras
         </h4>
 
         <div class="lista-salsas">
 
           <label class="opcion-salsa">
+
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Nuez"
               data-precio="5"
-              data-tipo="Topping"
             >
+
             <span>🥜 Nuez +$5</span>
+
           </label>
 
           <label class="opcion-salsa">
+
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Chispas de chocolate"
               data-precio="5"
-              data-tipo="Topping"
             >
+
             <span>🍫 Chispas de chocolate +$5</span>
+
           </label>
 
         </div>
@@ -502,11 +607,6 @@ function abrirConfiguracion(nombre, precio) {
 
       if (untable && fruta && topping) {
         extrasContenedor.style.display = 'block';
-
-        extrasContenedor.scrollIntoView({
-          behavior: 'smooth',
-          block: 'nearest',
-        });
       }
     }
 
@@ -523,25 +623,15 @@ function abrirConfiguracion(nombre, precio) {
 // ==========================================
 
 function obtenerTitulo(nombre) {
-  if (nombre === 'Alitas') {
-    return '🍗 Alitas';
-  }
+  if (nombre === 'Alitas') return '🍗 Alitas';
 
-  if (nombre === 'Brochetas') {
-    return '🍢 Brochetas';
-  }
+  if (nombre === 'Brochetas') return '🍢 Brochetas';
 
-  if (nombre === 'Cerillos') {
-    return '🍺 Cerillos';
-  }
+  if (nombre === 'Cerillos') return '🍺 Cerillos';
 
-  if (nombre === 'Crepas') {
-    return '🥞 Crepas';
-  }
+  if (nombre === 'Crepas') return '🥞 Crepas';
 
-  if (nombre === 'Waffles') {
-    return '🧇 Waffles';
-  }
+  if (nombre === 'Waffles') return '🧇 Waffles';
 
   return nombre;
 }
@@ -551,37 +641,25 @@ function obtenerTitulo(nombre) {
 // ==========================================
 
 function obtenerDescripcion(nombre) {
-  if (nombre === 'Alitas') {
-    return '5 piezas';
-  }
+  if (nombre === 'Alitas') return '5 piezas';
 
-  if (nombre === 'Brochetas') {
-    return 'Bien servidas';
-  }
+  if (nombre === 'Brochetas') return 'Bien servidas';
 
-  if (nombre === 'Cerillos') {
-    return 'Elige tu cerveza y sabor';
-  }
+  if (nombre === 'Cerillos') return 'Elige tu cerveza y sabor';
 
-  if (nombre === 'Crepas') {
-    return 'Elige tus ingredientes';
-  }
+  if (nombre === 'Crepas') return 'Elige tus ingredientes';
 
-  if (nombre === 'Waffles') {
-    return 'Elige tus ingredientes';
-  }
+  if (nombre === 'Waffles') return 'Elige tus ingredientes';
 
   return '';
 }
 
 // ==========================================
-// AGREGAR PRODUCTO CONFIGURADO
+// AGREGAR CONFIGURADO
 // ==========================================
 
 agregarConfigurado.addEventListener('click', () => {
-  if (!productoActual) {
-    return;
-  }
+  if (!productoActual) return;
 
   const nombre = productoActual.nombre;
 
@@ -695,34 +773,6 @@ agregarConfigurado.addEventListener('click', () => {
 });
 
 // ==========================================
-// PRODUCTOS SIN CONFIGURACIÓN
-// ==========================================
-
-productos.forEach((producto) => {
-  const nombre = producto.dataset.nombre;
-
-  if (nombre === 'Alitas' || nombre === 'Brochetas' || nombre === 'Cerillos' || nombre === 'Crepas' || nombre === 'Waffles') {
-    return;
-  }
-
-  const boton = producto.querySelector('.btn-agregar');
-
-  boton.addEventListener('click', () => {
-    const precio = Number(producto.dataset.precio);
-
-    pedido.push({
-      nombre,
-
-      precio,
-
-      detalle: '',
-    });
-
-    actualizarCarrito();
-  });
-});
-
-// ==========================================
 // ACTUALIZAR CARRITO
 // ==========================================
 
@@ -780,7 +830,6 @@ function renderizarPedido() {
             $${producto.precio}
           </strong>
 
-
           <button
             type="button"
             class="btn-eliminar"
@@ -817,25 +866,15 @@ function renderizarPedido() {
 // ==========================================
 
 function iconoProducto(nombre) {
-  if (nombre === 'Alitas') {
-    return '🍗';
-  }
+  if (nombre === 'Alitas') return '🍗';
 
-  if (nombre === 'Cerillos') {
-    return '🍺';
-  }
+  if (nombre === 'Cerillos') return '🍺';
 
-  if (nombre === 'Brochetas') {
-    return '🍢';
-  }
+  if (nombre === 'Brochetas') return '🍢';
 
-  if (nombre === 'Crepas') {
-    return '🥞';
-  }
+  if (nombre === 'Crepas') return '🥞';
 
-  if (nombre === 'Waffles') {
-    return '🧇';
-  }
+  if (nombre === 'Waffles') return '🧇';
 
   return '🍴';
 }
@@ -875,10 +914,38 @@ seguirComprando.addEventListener('click', () => {
 });
 
 // ==========================================
+// CREAR TEXTO DE PRODUCTOS
+// ==========================================
+
+function crearTextoProductos(productos) {
+  let texto = '';
+
+  productos.forEach((producto, indice) => {
+    texto += `${indice + 1}. ${producto.nombre}\n`;
+
+    if (producto.detalle) {
+      texto += `   ${producto.detalle}\n`;
+    }
+
+    texto += `   Precio: $${producto.precio}\n\n`;
+  });
+
+  return texto;
+}
+
+// ==========================================
+// CALCULAR TOTAL
+// ==========================================
+
+function calcularTotal(productos) {
+  return productos.reduce((total, producto) => total + producto.precio, 0);
+}
+
+// ==========================================
 // HACER PEDIDO
 // ==========================================
 
-hacerPedido.addEventListener('click', () => {
+hacerPedido.addEventListener('click', async () => {
   if (pedido.length === 0) {
     alert('Tu pedido está vacío.');
 
@@ -886,7 +953,7 @@ hacerPedido.addEventListener('click', () => {
   }
 
   // ======================================
-  // GENERAR NÚMERO DE PEDIDO
+  // NÚMERO DE PEDIDO
   // ======================================
 
   let numeroPedido = Number(localStorage.getItem('numeroPedidoLosQalitas')) || 0;
@@ -896,160 +963,151 @@ hacerPedido.addEventListener('click', () => {
   localStorage.setItem('numeroPedidoLosQalitas', numeroPedido);
 
   // ======================================
-  // SEPARAR PRODUCTOS
+  // CREAR TEXTO COMPLETO
   // ======================================
 
-  const alitasBrochetas = pedido.filter((producto) => producto.nombre === 'Alitas' || producto.nombre === 'Brochetas');
+  const textoPedido = crearTextoProductos(pedido);
 
-  const crepasWaffles = pedido.filter((producto) => producto.nombre === 'Crepas' || producto.nombre === 'Waffles');
-
-  const cerillos = pedido.filter((producto) => producto.nombre === 'Cerillos');
+  const total = calcularTotal(pedido);
 
   // ======================================
-  // WHATSAPP ALITAS / BROCHETAS
+  // MENSAJE DE WHATSAPP
   // ======================================
 
-  const whatsAlitasBrochetas = ['525645973242', '525584594703'];
-
-  // ======================================
-  // WHATSAPP CREPAS / WAFFLES
-  // ======================================
-
-  const whatsCrepasWaffles = ['525617723407', '525522399148'];
-
-  // ======================================
-  // WHATSAPP CERILLOS
-  // ======================================
-
-  const whatsCerillos = ['525645973242', '525584594703', '525617723407', '525522399148'];
-
-  // ======================================
-  // CREAR TEXTO DE PRODUCTOS
-  // ======================================
-
-  function crearTextoProductos(productos) {
-    let texto = '';
-
-    productos.forEach((producto, indice) => {
-      texto += `${indice + 1}. ${producto.nombre}\n`;
-
-      if (producto.detalle) {
-        texto += `   ${producto.detalle}\n`;
-      }
-
-      texto += `   Precio: $${producto.precio}\n\n`;
-    });
-
-    return texto;
-  }
-
-  // ======================================
-  // CALCULAR TOTAL
-  // ======================================
-
-  function calcularTotal(productos) {
-    return productos.reduce((total, producto) => total + producto.precio, 0);
-  }
-
-  // ======================================
-  // ABRIR WHATSAPP
-  // ======================================
-
-  function enviarWhatsApp(numero, mensaje) {
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
-
-    window.open(url, '_blank');
-  }
-
-  // ======================================
-  // ALITAS Y BROCHETAS
-  // ======================================
-
-  if (alitasBrochetas.length > 0) {
-    const total = calcularTotal(alitasBrochetas);
-
-    const mensaje = `🔥 LOS +QALITAS
+  const mensajeWhatsApp = `🔥 LOS +QALITAS
 
 🧾 PEDIDO #${numeroPedido}
 
-🍗 ÁREA: ALITAS Y BROCHETAS
+📦 PEDIDO COMPLETO
 
-${crearTextoProductos(alitasBrochetas)}
+${textoPedido}💰 TOTAL: $${total}
 
-TOTAL DEL ÁREA: $${total}
+⚠️ PEDIDO #${numeroPedido}`;
 
-⚠️ Este pedido pertenece al PEDIDO #${numeroPedido}.`;
+  // ======================================
+  // PEDIDO PARA LA CENTRAL
+  // ======================================
 
-    whatsAlitasBrochetas.forEach((numero) => {
-      enviarWhatsApp(numero, mensaje);
+  const pedidoParaEnviar = {
+    numeroPedido: numeroPedido,
+
+    productos: pedido.map((producto) => ({
+      nombre: producto.nombre,
+
+      precio: producto.precio,
+
+      detalle: producto.detalle || '',
+    })),
+  };
+
+  try {
+    hacerPedido.disabled = true;
+
+    hacerPedido.textContent = 'Enviando pedido...';
+
+    // ====================================
+    // ENVIAR A LA CENTRAL
+    // ====================================
+
+    const respuesta = await fetch('http://localhost:3000/pedido', {
+      method: 'POST',
+
+      headers: {
+        'Content-Type': 'application/json',
+      },
+
+      body: JSON.stringify(pedidoParaEnviar),
     });
+
+    if (!respuesta.ok) {
+      throw new Error(`Error HTTP ${respuesta.status}`);
+    }
+
+    const resultado = await respuesta.json();
+
+    console.log('🔥 PEDIDO ENVIADO A LA CENTRAL:', resultado);
+
+    // ====================================
+    // ABRIR WHATSAPP
+    // ====================================
+
+    const numeroWhatsApp = '525645973242';
+
+    const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensajeWhatsApp)}`;
+
+    window.open(urlWhatsApp, '_blank');
+
+    // ====================================
+    // MOSTRAR CONFIRMACIÓN
+    // ====================================
+
+    const contenido = modalPedido.querySelector('.modal-contenido');
+
+    const panelAnterior = document.getElementById('panel-central-pedido');
+
+    if (panelAnterior) {
+      panelAnterior.remove();
+    }
+
+    const panel = document.createElement('div');
+
+    panel.id = 'panel-central-pedido';
+
+    panel.style.marginTop = '20px';
+
+    panel.style.padding = '20px';
+
+    panel.style.borderRadius = '15px';
+
+    panel.style.background = 'rgba(255,255,255,0.08)';
+
+    panel.style.textAlign = 'center';
+
+    panel.innerHTML = `
+
+        <h2>
+          🔥 PEDIDO #${numeroPedido}
+        </h2>
+
+        <p>
+          ✅ Pedido enviado correctamente
+        </p>
+
+        <p>
+          📱 El pedido fue preparado
+          para WhatsApp.
+        </p>
+
+        <p>
+          📦 Todo el pedido está
+          en un solo mensaje.
+        </p>
+
+      `;
+
+    contenido.appendChild(panel);
+
+    alert(
+      `🔥 PEDIDO #${numeroPedido}
+
+Tu pedido fue enviado correctamente.
+
+📱 WhatsApp:
+5645973242`,
+    );
+  } catch (error) {
+    console.error('❌ Error enviando el pedido:', error);
+
+    alert(
+      `❌ No se pudo enviar el pedido #${numeroPedido}.
+
+Asegúrate de que la Central Los +Qalitas esté funcionando en:
+
+http://localhost:3000`,
+    );
+  } finally {
+    hacerPedido.disabled = false;
+
+    hacerPedido.textContent = 'Hacer pedido';
   }
-
-  // ======================================
-  // CREPAS Y WAFFLES
-  // ======================================
-
-  if (crepasWaffles.length > 0) {
-    const total = calcularTotal(crepasWaffles);
-
-    const mensaje = `🔥 LOS +QALITAS
-
-🧾 PEDIDO #${numeroPedido}
-
-🥞 ÁREA: CREPAS Y WAFFLES
-
-${crearTextoProductos(crepasWaffles)}
-
-TOTAL DEL ÁREA: $${total}
-
-⚠️ Este pedido pertenece al PEDIDO #${numeroPedido}.`;
-
-    whatsCrepasWaffles.forEach((numero) => {
-      enviarWhatsApp(numero, mensaje);
-    });
-  }
-
-  // ======================================
-  // CERILLOS
-  // ======================================
-
-  if (cerillos.length > 0) {
-    const total = calcularTotal(cerillos);
-
-    const mensaje = `🔥 LOS +QALITAS
-
-🧾 PEDIDO #${numeroPedido}
-
-🍺 ÁREA: CERILLOS
-
-${crearTextoProductos(cerillos)}
-
-TOTAL DEL ÁREA: $${total}
-
-⚠️ Este pedido pertenece al PEDIDO #${numeroPedido}.`;
-
-    whatsCerillos.forEach((numero) => {
-      enviarWhatsApp(numero, mensaje);
-    });
-  }
-
-  // ======================================
-  // CONFIRMACIÓN
-  // ======================================
-
-  alert(
-    `🔥 ¡Pedido realizado!
-
-🧾 Tu número de pedido es:
-
-#${numeroPedido}
-
-Guarda este número para identificar tu pedido.`,
-  );
-
-  // ======================================
-  // CERRAR MODAL
-  // ======================================
-
-  modalPedido.classList.remove('activo');
 });
