@@ -1,0 +1,664 @@
+/* ==========================================
+   LOS +QALITAS
+   PANEL DEL EQUIPO
+========================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+  background: radial-gradient(circle at top, #242424 0%, #111111 45%, #080808 100%);
+
+  color: #ffffff;
+}
+
+/* ==========================================
+   UTILIDADES
+========================================== */
+
+.oculto {
+  display: none !important;
+}
+
+/* ==========================================
+   LOGIN
+========================================== */
+
+.pantalla-login {
+  min-height: 100vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 20px;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+
+  background: #1d1d1d;
+
+  border: 1px solid #3a3a3a;
+
+  border-radius: 24px;
+
+  padding: 35px 28px;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+
+  text-align: center;
+}
+
+.login-logo {
+  font-size: 58px;
+
+  margin-bottom: 10px;
+}
+
+.login-card h1 {
+  margin: 0;
+
+  font-size: 30px;
+
+  font-weight: 900;
+
+  letter-spacing: 0.5px;
+
+  color: #f5b900;
+}
+
+.login-card > p {
+  margin-top: 8px;
+
+  margin-bottom: 28px;
+
+  color: #cfcfcf;
+
+  font-size: 16px;
+}
+
+#form-login {
+  text-align: left;
+}
+
+#form-login label {
+  display: block;
+
+  margin-bottom: 8px;
+
+  margin-top: 18px;
+
+  font-weight: 700;
+}
+
+#form-login input {
+  width: 100%;
+
+  padding: 14px 15px;
+
+  border-radius: 12px;
+
+  border: 1px solid #4a4a4a;
+
+  background: #111111;
+
+  color: #ffffff;
+
+  font-size: 16px;
+
+  outline: none;
+}
+
+#form-login input:focus {
+  border-color: #f5b900;
+
+  box-shadow: 0 0 0 3px rgba(245, 185, 0, 0.12);
+}
+
+.btn-login {
+  width: 100%;
+
+  margin-top: 25px;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #f5b900;
+
+  color: #111111;
+
+  font-size: 17px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+}
+
+.btn-login:hover {
+  filter: brightness(1.06);
+}
+
+.mensaje-login {
+  min-height: 22px;
+
+  margin-top: 15px;
+
+  color: #ff6b6b;
+
+  text-align: center;
+
+  font-size: 14px;
+}
+
+/* ==========================================
+   PANEL GENERAL
+========================================== */
+
+.panel-equipo {
+  min-height: 100vh;
+
+  padding-bottom: 40px;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+.panel-header {
+  position: sticky;
+
+  top: 0;
+
+  z-index: 20;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 18px 24px;
+
+  background: rgba(15, 15, 15, 0.96);
+
+  border-bottom: 1px solid #333;
+
+  backdrop-filter: blur(10px);
+}
+
+.panel-header h1 {
+  margin: 0;
+
+  color: #f5b900;
+
+  font-size: 24px;
+}
+
+.panel-header p {
+  margin: 4px 0 0;
+
+  color: #aaaaaa;
+
+  font-size: 14px;
+}
+
+.panel-header-derecha {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+#usuario-activo {
+  color: #dddddd;
+
+  font-weight: 700;
+}
+
+#btn-salir {
+  padding: 10px 16px;
+
+  border: 1px solid #555;
+
+  border-radius: 10px;
+
+  background: #252525;
+
+  color: #ffffff;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+#btn-salir:hover {
+  background: #333333;
+}
+
+/* ==========================================
+   RESUMEN
+========================================== */
+
+.resumen {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 15px;
+
+  max-width: 1200px;
+
+  margin: 24px auto 0;
+
+  padding: 0 20px;
+}
+
+.tarjeta-resumen {
+  background: #1c1c1c;
+
+  border: 1px solid #333;
+
+  border-radius: 16px;
+
+  padding: 20px;
+
+  text-align: center;
+}
+
+.tarjeta-resumen span {
+  display: block;
+
+  color: #b8b8b8;
+
+  font-size: 14px;
+
+  margin-bottom: 8px;
+}
+
+.tarjeta-resumen strong {
+  display: block;
+
+  color: #f5b900;
+
+  font-size: 32px;
+}
+
+/* ==========================================
+   FILTROS
+========================================== */
+
+.filtros {
+  max-width: 1200px;
+
+  margin: 20px auto 0;
+
+  padding: 0 20px;
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 10px;
+}
+
+.filtro {
+  padding: 10px 16px;
+
+  border-radius: 999px;
+
+  border: 1px solid #444;
+
+  background: #1f1f1f;
+
+  color: #ffffff;
+
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.filtro.activo {
+  background: #f5b900;
+
+  color: #111111;
+
+  border-color: #f5b900;
+}
+
+/* ==========================================
+   LISTA DE PEDIDOS
+========================================== */
+
+.lista-pedidos-equipo {
+  max-width: 1200px;
+
+  margin: 20px auto 0;
+
+  padding: 0 20px;
+
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+/* ==========================================
+   PEDIDO
+========================================== */
+
+.pedido-card {
+  background: #1c1c1c;
+
+  border: 1px solid #343434;
+
+  border-radius: 18px;
+
+  padding: 20px;
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.pedido-card-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 15px;
+
+  margin-bottom: 15px;
+}
+
+.pedido-numero {
+  margin: 0;
+
+  color: #f5b900;
+
+  font-size: 24px;
+
+  font-weight: 900;
+}
+
+.pedido-fecha {
+  color: #969696;
+
+  font-size: 12px;
+
+  text-align: right;
+}
+
+/* ==========================================
+   ESTADO
+========================================== */
+
+.estado-badge {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 7px 11px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+
+  font-weight: 900;
+
+  margin-bottom: 15px;
+}
+
+.estado-nuevo {
+  background: #4a2f00;
+
+  color: #ffc532;
+}
+
+.estado-preparando {
+  background: #173552;
+
+  color: #77bfff;
+}
+
+.estado-listo {
+  background: #173b24;
+
+  color: #7fe49a;
+}
+
+.estado-entregado {
+  background: #303030;
+
+  color: #bbbbbb;
+}
+
+/* ==========================================
+   PRODUCTOS DEL PEDIDO
+========================================== */
+
+.productos-pedido {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  margin-bottom: 18px;
+}
+
+.producto-pedido {
+  padding-bottom: 12px;
+
+  border-bottom: 1px solid #303030;
+}
+
+.producto-pedido:last-child {
+  padding-bottom: 0;
+
+  border-bottom: none;
+}
+
+.producto-pedido strong {
+  display: block;
+
+  font-size: 16px;
+
+  margin-bottom: 4px;
+}
+
+.producto-detalle {
+  color: #bdbdbd;
+
+  font-size: 14px;
+
+  line-height: 1.45;
+}
+
+/* ==========================================
+   TOTAL
+========================================== */
+
+.pedido-total {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 10px;
+
+  padding-top: 14px;
+
+  margin-top: 5px;
+
+  border-top: 1px solid #3a3a3a;
+}
+
+.pedido-total span {
+  color: #dddddd;
+
+  font-weight: 700;
+}
+
+.pedido-total strong {
+  color: #f5b900;
+
+  font-size: 22px;
+}
+
+/* ==========================================
+   BOTONES DE ESTADO
+========================================== */
+
+.acciones-pedido {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 16px;
+}
+
+.accion-pedido {
+  flex: 1 1 120px;
+
+  padding: 11px 12px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  font-weight: 900;
+
+  cursor: pointer;
+}
+
+.accion-nuevo {
+  background: #f5b900;
+
+  color: #111111;
+}
+
+.accion-preparando {
+  background: #2f79b8;
+
+  color: #ffffff;
+}
+
+.accion-listo {
+  background: #31a85a;
+
+  color: #ffffff;
+}
+
+.accion-entregado {
+  background: #3b3b3b;
+
+  color: #ffffff;
+}
+
+.accion-pedido:hover {
+  filter: brightness(1.08);
+}
+
+/* ==========================================
+   SIN PEDIDOS
+========================================== */
+
+.sin-pedidos {
+  grid-column: 1 / -1;
+
+  text-align: center;
+
+  padding: 60px 20px;
+
+  background: #171717;
+
+  border: 1px dashed #404040;
+
+  border-radius: 18px;
+}
+
+.sin-pedidos-icono {
+  font-size: 56px;
+
+  margin-bottom: 10px;
+}
+
+.sin-pedidos h2 {
+  margin: 0 0 8px;
+
+  color: #f5b900;
+}
+
+.sin-pedidos p {
+  margin: 0;
+
+  color: #a7a7a7;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 850px) {
+  .lista-pedidos-equipo {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 650px) {
+  .panel-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    padding: 16px;
+  }
+
+  .panel-header-derecha {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  .resumen {
+    grid-template-columns: 1fr;
+
+    padding: 0 16px;
+  }
+
+  .filtros {
+    padding: 0 16px;
+  }
+
+  .lista-pedidos-equipo {
+    padding: 0 16px;
+  }
+
+  .login-card {
+    padding: 30px 20px;
+  }
+}
