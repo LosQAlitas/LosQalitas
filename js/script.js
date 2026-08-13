@@ -52,7 +52,9 @@ let productoActual = null;
 productos.forEach((producto) => {
   const boton = producto.querySelector('.btn-agregar');
 
-  if (!boton) return;
+  if (!boton) {
+    return;
+  }
 
   boton.addEventListener('click', () => {
     const nombre = producto.dataset.nombre;
@@ -86,7 +88,9 @@ function abrirConfiguracion(nombre, precio) {
   if (nombre === 'Alitas') {
     configuracionProducto.innerHTML = `
 
-      <h3>¿Qué salsas quieres?</h3>
+      <h3>
+        ¿Qué salsas quieres?
+      </h3>
 
       <p class="ayuda-salsas">
         Puedes elegir todas las que quieras.
@@ -95,27 +99,42 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="BBQ">
+          <input
+            type="checkbox"
+            value="BBQ"
+          >
           <span>BBQ</span>
         </label>
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="Búfalo">
+          <input
+            type="checkbox"
+            value="Búfalo"
+          >
           <span>Búfalo</span>
         </label>
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="Salsa inglesa">
+          <input
+            type="checkbox"
+            value="Salsa inglesa"
+          >
           <span>Salsa inglesa</span>
         </label>
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="Salsa Maggie">
+          <input
+            type="checkbox"
+            value="Salsa Maggie"
+          >
           <span>Salsa Maggie</span>
         </label>
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="BBQ Picoso">
+          <input
+            type="checkbox"
+            value="BBQ Picoso"
+          >
           <span>BBQ Picoso</span>
         </label>
 
@@ -130,7 +149,9 @@ function abrirConfiguracion(nombre, precio) {
   else if (nombre === 'Brochetas') {
     configuracionProducto.innerHTML = `
 
-      <h3>¿Qué salsas quieres?</h3>
+      <h3>
+        ¿Qué salsas quieres?
+      </h3>
 
       <p class="ayuda-salsas">
         Puedes elegir todas las que quieras.
@@ -139,27 +160,42 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="BBQ">
+          <input
+            type="checkbox"
+            value="BBQ"
+          >
           <span>BBQ</span>
         </label>
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="Búfalo">
+          <input
+            type="checkbox"
+            value="Búfalo"
+          >
           <span>Búfalo</span>
         </label>
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="Salsa inglesa">
+          <input
+            type="checkbox"
+            value="Salsa inglesa"
+          >
           <span>Salsa inglesa</span>
         </label>
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="Salsa Maggie">
+          <input
+            type="checkbox"
+            value="Salsa Maggie"
+          >
           <span>Salsa Maggie</span>
         </label>
 
         <label class="opcion-salsa">
-          <input type="checkbox" value="BBQ Picoso">
+          <input
+            type="checkbox"
+            value="BBQ Picoso"
+          >
           <span>BBQ Picoso</span>
         </label>
 
@@ -169,67 +205,364 @@ function abrirConfiguracion(nombre, precio) {
   }
 
   // ========================================
-  // CERILLOS
+  // HAMBURGUESAS
   // ========================================
-  else if (nombre === 'Cerillos') {
+  else if (nombre === 'Hamburguesas') {
     configuracionProducto.innerHTML = `
 
-      <h3>Elige tu cerveza</h3>
+      <h3>
+        Elige tu hamburguesa
+      </h3>
+
+      <p class="ayuda-salsas">
+        Elige 1.
+      </p>
 
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
+
           <input
             type="radio"
-            name="cerveza"
-            value="Modelo"
+            name="hamburguesa"
+            value="Sencilla"
           >
-          <span>🍺 Modelo</span>
+
+          <span>
+            🍔 Sencilla
+          </span>
+
         </label>
 
+
         <label class="opcion-salsa">
+
           <input
             type="radio"
-            name="cerveza"
-            value="Victoria"
+            name="hamburguesa"
+            value="Hawaiana"
           >
-          <span>🍺 Victoria</span>
+
+          <span>
+            🍍 Hawaiana
+          </span>
+
         </label>
 
       </div>
 
 
-      <h3 style="margin-top: 20px;">
-        Elige tu sabor
+      <!-- INGREDIENTES HAWAIANA -->
+
+      <div
+        id="ingredientes-hawaiana"
+        style="
+          display:none;
+          margin-top:12px;
+          padding:12px;
+          background:#111;
+          border-radius:10px;
+          color:#ddd;
+        "
+      >
+
+        <strong
+          style="
+            color:#f5b900;
+            display:block;
+            margin-bottom:6px;
+          "
+        >
+          Incluye automáticamente:
+        </strong>
+
+        <div>
+          🍍 Piña
+        </div>
+
+        <div>
+          🥩 Jamón
+        </div>
+
+      </div>
+
+
+      <!-- QUESO -->
+
+      <h3
+        style="
+          margin-top:20px;
+        "
+      >
+        Elige tu queso
+      </h3>
+
+      <p class="ayuda-salsas">
+        Opcional.
+      </p>
+
+      <div class="lista-salsas">
+
+        <label class="opcion-salsa">
+
+          <input
+            type="radio"
+            name="queso-hamburguesa"
+            value="Americano"
+          >
+
+          <span>
+            🧀 Americano
+          </span>
+
+        </label>
+
+      </div>
+
+
+      <!-- TOPPINGS -->
+
+      <h3
+        style="
+          margin-top:20px;
+        "
+      >
+        Toppings
+      </h3>
+
+      <p class="ayuda-salsas">
+        Puedes elegir todos los que quieras.
+      </p>
+
+      <div class="lista-salsas">
+
+        <label class="opcion-salsa">
+
+          <input
+            type="checkbox"
+            class="topping-hamburguesa"
+            value="Lechuga"
+          >
+
+          <span>
+            🥬 Lechuga
+          </span>
+
+        </label>
+
+
+        <label class="opcion-salsa">
+
+          <input
+            type="checkbox"
+            class="topping-hamburguesa"
+            value="Jitomate"
+          >
+
+          <span>
+            🍅 Jitomate
+          </span>
+
+        </label>
+
+
+        <label class="opcion-salsa">
+
+          <input
+            type="checkbox"
+            class="topping-hamburguesa"
+            value="Cebolla"
+          >
+
+          <span>
+            🧅 Cebolla
+          </span>
+
+        </label>
+
+      </div>
+
+
+      <!-- SALSAS -->
+
+      <h3
+        style="
+          margin-top:20px;
+        "
+      >
+        Salsas
+      </h3>
+
+      <p class="ayuda-salsas">
+        Puedes elegir todas las que quieras.
+      </p>
+
+      <div class="lista-salsas">
+
+        <label class="opcion-salsa">
+
+          <input
+            type="checkbox"
+            class="salsa-hamburguesa"
+            value="Kétchup"
+          >
+
+          <span>
+            🍅 Kétchup
+          </span>
+
+        </label>
+
+
+        <label class="opcion-salsa">
+
+          <input
+            type="checkbox"
+            class="salsa-hamburguesa"
+            value="Mostaza"
+          >
+
+          <span>
+            💛 Mostaza
+          </span>
+
+        </label>
+
+
+        <label class="opcion-salsa">
+
+          <input
+            type="checkbox"
+            class="salsa-hamburguesa"
+            value="Mayonesa"
+          >
+
+          <span>
+            🥚 Mayonesa
+          </span>
+
+        </label>
+
+      </div>
+
+    `;
+
+    // ======================================
+    // MOSTRAR PIÑA Y JAMÓN
+    // ======================================
+
+    const radiosHamburguesa = configuracionProducto.querySelectorAll('input[name="hamburguesa"]');
+
+    const ingredientesHawaiana = configuracionProducto.querySelector('#ingredientes-hawaiana');
+
+    radiosHamburguesa.forEach((radio) => {
+      radio.addEventListener('change', () => {
+        if (radio.value === 'Hawaiana' && radio.checked) {
+          ingredientesHawaiana.style.display = 'block';
+        } else {
+          ingredientesHawaiana.style.display = 'none';
+        }
+      });
+    });
+  }
+
+  // ========================================
+  // CERILLOS
+  // ========================================
+  else if (nombre === 'Cerillos') {
+    configuracionProducto.innerHTML = `
+
+      <h3>
+        Elige tu cerveza
       </h3>
 
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
+
+          <input
+            type="radio"
+            name="cerveza"
+            value="Modelo"
+          >
+
+          <span>
+            🍺 Modelo
+          </span>
+
+        </label>
+
+
+        <label class="opcion-salsa">
+
+          <input
+            type="radio"
+            name="cerveza"
+            value="Victoria"
+          >
+
+          <span>
+            🍺 Victoria
+          </span>
+
+        </label>
+
+      </div>
+
+
+      <h3
+        style="
+          margin-top:20px;
+        "
+      >
+        Elige tu sabor
+      </h3>
+
+
+      <div class="lista-salsas">
+
+        <label class="opcion-salsa">
+
           <input
             type="radio"
             name="sabor"
             value="Cereza"
           >
-          <span>🍒 Cereza</span>
+
+          <span>
+            🍒 Cereza
+          </span>
+
         </label>
 
+
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="sabor"
             value="Sandía"
           >
-          <span>🍉 Sandía</span>
+
+          <span>
+            🍉 Sandía
+          </span>
+
         </label>
 
+
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="sabor"
             value="Tamarindo"
           >
-          <span>🥭 Tamarindo</span>
+
+          <span>
+            🥭 Tamarindo
+          </span>
+
         </label>
 
       </div>
@@ -243,7 +576,9 @@ function abrirConfiguracion(nombre, precio) {
   else if (nombre === 'Crepas' || nombre === 'Waffles') {
     configuracionProducto.innerHTML = `
 
-      <h3>Elige tu untable</h3>
+      <h3>
+        Elige tu untable
+      </h3>
 
       <p class="ayuda-salsas">
         Elige 1.
@@ -252,45 +587,72 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="untable"
             value="Cajeta"
           >
-          <span>🥄 Cajeta</span>
+
+          <span>
+            🥄 Cajeta
+          </span>
+
         </label>
 
+
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="untable"
             value="Lechera"
           >
-          <span>🥛 Lechera</span>
+
+          <span>
+            🥛 Lechera
+          </span>
+
         </label>
 
+
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="untable"
             value="Philadelphia"
           >
-          <span>🧀 Philadelphia</span>
+
+          <span>
+            🧀 Philadelphia
+          </span>
+
         </label>
 
+
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="untable"
             value="Nutella"
           >
-          <span>🍫 Nutella</span>
+
+          <span>
+            🍫 Nutella
+          </span>
+
         </label>
 
       </div>
 
 
-      <h3 style="margin-top: 22px;">
+      <h3
+        style="
+          margin-top:22px;
+        "
+      >
         Elige tu fruta
       </h3>
 
@@ -301,36 +663,57 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="fruta"
             value="Fresa"
           >
-          <span>🍓 Fresa</span>
+
+          <span>
+            🍓 Fresa
+          </span>
+
         </label>
 
+
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="fruta"
             value="Durazno"
           >
-          <span>🍑 Durazno</span>
+
+          <span>
+            🍑 Durazno
+          </span>
+
         </label>
 
+
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="fruta"
             value="Plátano"
           >
-          <span>🍌 Plátano</span>
+
+          <span>
+            🍌 Plátano
+          </span>
+
         </label>
 
       </div>
 
 
-      <h3 style="margin-top: 22px;">
+      <h3
+        style="
+          margin-top:22px;
+        "
+      >
         Elige tu topping
       </h3>
 
@@ -341,21 +724,32 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="topping"
             value="Nuez"
           >
-          <span>🥜 Nuez</span>
+
+          <span>
+            🥜 Nuez
+          </span>
+
         </label>
 
+
         <label class="opcion-salsa">
+
           <input
             type="radio"
             name="topping"
             value="Chispas de chocolate"
           >
-          <span>🍫 Chispas de chocolate</span>
+
+          <span>
+            🍫 Chispas de chocolate
+          </span>
+
         </label>
 
       </div>
@@ -363,7 +757,10 @@ function abrirConfiguracion(nombre, precio) {
 
       <div
         id="extras-contenedor"
-        style="display:none; margin-top:25px;"
+        style="
+          display:none;
+          margin-top:25px;
+        "
       >
 
         <h3>
@@ -382,43 +779,66 @@ function abrirConfiguracion(nombre, precio) {
         <div class="lista-salsas">
 
           <label class="opcion-salsa">
+
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Cajeta"
               data-precio="5"
             >
-            <span>🥄 Cajeta +$5</span>
+
+            <span>
+              🥄 Cajeta +$5
+            </span>
+
           </label>
 
+
           <label class="opcion-salsa">
+
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Lechera"
               data-precio="5"
             >
-            <span>🥛 Lechera +$5</span>
+
+            <span>
+              🥛 Lechera +$5
+            </span>
+
           </label>
 
+
           <label class="opcion-salsa">
+
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Philadelphia"
               data-precio="5"
             >
-            <span>🧀 Philadelphia +$5</span>
+
+            <span>
+              🧀 Philadelphia +$5
+            </span>
+
           </label>
 
+
           <label class="opcion-salsa">
+
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Nutella"
               data-precio="10"
             >
-            <span>🍫 Nutella +$10</span>
+
+            <span>
+              🍫 Nutella +$10
+            </span>
+
           </label>
 
         </div>
@@ -431,33 +851,50 @@ function abrirConfiguracion(nombre, precio) {
         <div class="lista-salsas">
 
           <label class="opcion-salsa">
+
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Fresa"
               data-precio="10"
             >
-            <span>🍓 Fresa +$10</span>
+
+            <span>
+              🍓 Fresa +$10
+            </span>
+
           </label>
 
+
           <label class="opcion-salsa">
+
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Durazno"
               data-precio="5"
             >
-            <span>🍑 Durazno +$5</span>
+
+            <span>
+              🍑 Durazno +$5
+            </span>
+
           </label>
 
+
           <label class="opcion-salsa">
+
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Plátano"
               data-precio="5"
             >
-            <span>🍌 Plátano +$5</span>
+
+            <span>
+              🍌 Plátano +$5
+            </span>
+
           </label>
 
         </div>
@@ -470,23 +907,34 @@ function abrirConfiguracion(nombre, precio) {
         <div class="lista-salsas">
 
           <label class="opcion-salsa">
+
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Nuez"
               data-precio="5"
             >
-            <span>🥜 Nuez +$5</span>
+
+            <span>
+              🥜 Nuez +$5
+            </span>
+
           </label>
 
+
           <label class="opcion-salsa">
+
             <input
               type="checkbox"
               class="extra-ingrediente"
               value="Chispas de chocolate"
               data-precio="5"
             >
-            <span>🍫 Chispas de chocolate +$5</span>
+
+            <span>
+              🍫 Chispas de chocolate +$5
+            </span>
+
           </label>
 
         </div>
@@ -524,15 +972,29 @@ function abrirConfiguracion(nombre, precio) {
 // ==========================================
 
 function obtenerTitulo(nombre) {
-  if (nombre === 'Alitas') return '🍗 Alitas';
+  if (nombre === 'Alitas') {
+    return '🍗 Alitas';
+  }
 
-  if (nombre === 'Brochetas') return '🍢 Brochetas';
+  if (nombre === 'Brochetas') {
+    return '🍢 Brochetas';
+  }
 
-  if (nombre === 'Cerillos') return '🍺 Cerillos';
+  if (nombre === 'Cerillos') {
+    return '🍺 Cerillos';
+  }
 
-  if (nombre === 'Crepas') return '🥞 Crepas';
+  if (nombre === 'Hamburguesas') {
+    return '🍔 Hamburguesas';
+  }
 
-  if (nombre === 'Waffles') return '🧇 Waffles';
+  if (nombre === 'Crepas') {
+    return '🥞 Crepas';
+  }
+
+  if (nombre === 'Waffles') {
+    return '🧇 Waffles';
+  }
 
   return nombre;
 }
@@ -542,15 +1004,29 @@ function obtenerTitulo(nombre) {
 // ==========================================
 
 function obtenerDescripcion(nombre) {
-  if (nombre === 'Alitas') return '5 piezas';
+  if (nombre === 'Alitas') {
+    return '5 piezas';
+  }
 
-  if (nombre === 'Brochetas') return 'Bien servidas';
+  if (nombre === 'Brochetas') {
+    return 'Bien servidas';
+  }
 
-  if (nombre === 'Cerillos') return 'Elige tu cerveza y sabor';
+  if (nombre === 'Cerillos') {
+    return 'Elige tu cerveza y sabor';
+  }
 
-  if (nombre === 'Crepas') return 'Elige tus ingredientes';
+  if (nombre === 'Hamburguesas') {
+    return 'Sencilla o Hawaiana';
+  }
 
-  if (nombre === 'Waffles') return 'Elige tus ingredientes';
+  if (nombre === 'Crepas') {
+    return 'Elige tus ingredientes';
+  }
+
+  if (nombre === 'Waffles') {
+    return 'Elige tus ingredientes';
+  }
 
   return '';
 }
@@ -560,7 +1036,9 @@ function obtenerDescripcion(nombre) {
 // ==========================================
 
 agregarConfigurado.addEventListener('click', () => {
-  if (!productoActual) return;
+  if (!productoActual) {
+    return;
+  }
 
   const nombre = productoActual.nombre;
 
@@ -614,6 +1092,64 @@ agregarConfigurado.addEventListener('click', () => {
       precio: precioBase,
 
       detalle: `Cerveza: ${cerveza.value} · Sabor: ${sabor.value}`,
+    });
+  }
+
+  // ========================================
+  // HAMBURGUESAS
+  // ========================================
+  else if (nombre === 'Hamburguesas') {
+    const tipo = configuracionProducto.querySelector('input[name="hamburguesa"]:checked');
+
+    // EL QUESO ES OPCIONAL
+    const queso = configuracionProducto.querySelector('input[name="queso-hamburguesa"]:checked');
+
+    if (!tipo) {
+      alert('Elige una hamburguesa.');
+
+      return;
+    }
+
+    const toppings = Array.from(configuracionProducto.querySelectorAll('.topping-hamburguesa:checked')).map((input) => input.value);
+
+    const salsas = Array.from(configuracionProducto.querySelectorAll('.salsa-hamburguesa:checked')).map((input) => input.value);
+
+    // ======================================
+    // CONSTRUIR DETALLE
+    // ======================================
+
+    let detalle = `Tipo: ${tipo.value}`;
+
+    // QUESO SOLO SI LO ELIGIERON
+
+    if (queso) {
+      detalle += ` · Queso: ${queso.value}`;
+    }
+
+    // HAWAIANA
+
+    if (tipo.value === 'Hawaiana') {
+      detalle += ' · Incluye: Piña, Jamón';
+    }
+
+    // TOPPINGS
+
+    if (toppings.length > 0) {
+      detalle += ` · Toppings: ${toppings.join(', ')}`;
+    }
+
+    // SALSAS
+
+    if (salsas.length > 0) {
+      detalle += ` · Salsas: ${salsas.join(', ')}`;
+    }
+
+    pedido.push({
+      nombre,
+
+      precio: precioBase,
+
+      detalle,
     });
   }
 
@@ -716,8 +1252,11 @@ function renderizarPedido() {
         <div class="item-pedido-info">
 
           <strong>
+
             ${iconoProducto(producto.nombre)}
+
             ${producto.nombre}
+
           </strong>
 
           ${producto.detalle ? `<small>${producto.detalle}</small>` : ''}
@@ -730,6 +1269,7 @@ function renderizarPedido() {
           <strong>
             $${producto.precio}
           </strong>
+
 
           <button
             type="button"
@@ -767,15 +1307,29 @@ function renderizarPedido() {
 // ==========================================
 
 function iconoProducto(nombre) {
-  if (nombre === 'Alitas') return '🍗';
+  if (nombre === 'Alitas') {
+    return '🍗';
+  }
 
-  if (nombre === 'Cerillos') return '🍺';
+  if (nombre === 'Cerillos') {
+    return '🍺';
+  }
 
-  if (nombre === 'Brochetas') return '🍢';
+  if (nombre === 'Brochetas') {
+    return '🍢';
+  }
 
-  if (nombre === 'Crepas') return '🥞';
+  if (nombre === 'Hamburguesas') {
+    return '🍔';
+  }
 
-  if (nombre === 'Waffles') return '🧇';
+  if (nombre === 'Crepas') {
+    return '🥞';
+  }
+
+  if (nombre === 'Waffles') {
+    return '🧇';
+  }
 
   return '🍴';
 }
@@ -864,17 +1418,24 @@ function crearBotonEstacion(contenedor, nombreEstacion, numeros, mensaje) {
   boton.textContent = `📱 Enviar ${nombreEstacion}`;
 
   boton.style.display = 'block';
+
   boton.style.width = '100%';
+
   boton.style.margin = '10px 0';
+
   boton.style.padding = '15px';
+
   boton.style.border = 'none';
+
   boton.style.borderRadius = '10px';
+
   boton.style.cursor = 'pointer';
+
   boton.style.fontSize = '16px';
+
   boton.style.fontWeight = 'bold';
 
   boton.addEventListener('click', () => {
-    // Abrir WhatsApp para cada número
     numeros.forEach((numero, indice) => {
       setTimeout(() => {
         const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensaje)}`;
@@ -930,7 +1491,6 @@ TOTAL DE ESTA ESTACIÓN: $${total}
 
   seccion.appendChild(info);
 
-  // UN SOLO BOTÓN POR ESTACIÓN
   crearBotonEstacion(seccion, titulo, numeros, mensaje);
 
   contenedor.appendChild(seccion);
@@ -943,6 +1503,7 @@ TOTAL DE ESTA ESTACIÓN: $${total}
 hacerPedido.addEventListener('click', () => {
   if (pedido.length === 0) {
     alert('Tu pedido está vacío.');
+
     return;
   }
 
@@ -954,7 +1515,7 @@ hacerPedido.addEventListener('click', () => {
 
   const total = pedido.reduce((suma, producto) => suma + producto.precio, 0);
 
-  let mensaje = `🔥 LOS +QALITAS\n\n🧾 PEDIDO #${numeroPedido}\n\n`;
+  let mensaje = `🔥 LOS +QALITAS\n\n` + `🧾 PEDIDO #${numeroPedido}\n\n`;
 
   pedido.forEach((producto, indice) => {
     mensaje += `${indice + 1}. ${producto.nombre}\n`;
@@ -966,18 +1527,22 @@ hacerPedido.addEventListener('click', () => {
     mensaje += `   Precio: $${producto.precio}\n\n`;
   });
 
-  mensaje += `💰 TOTAL: $${total}\n\n⚠️ PEDIDO #${numeroPedido}`;
+  mensaje += `💰 TOTAL: $${total}\n\n` + `⚠️ PEDIDO #${numeroPedido}`;
 
-  // ÚNICO WHATSAPP DE LOS +QALITAS
+  // ======================================
+  // ÚNICO WHATSAPP
+  // ======================================
+
   const numeroWhatsApp = '525645973242';
 
   const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
 
-  // Abrir WhatsApp directamente.
-  // Envío directo a WhatsApp desde GitHub Pages.
   window.open(url, '_blank');
 
-  // Mostrar confirmación dentro del pedido
+  // ======================================
+  // MOSTRAR CONFIRMACIÓN
+  // ======================================
+
   const contenido = modalPedido.querySelector('.modal-contenido');
 
   const panelAnterior = document.getElementById('panel-central-pedido');
@@ -989,18 +1554,36 @@ hacerPedido.addEventListener('click', () => {
   const panel = document.createElement('div');
 
   panel.id = 'panel-central-pedido';
+
   panel.style.marginTop = '20px';
+
   panel.style.padding = '20px';
+
   panel.style.borderRadius = '15px';
+
   panel.style.background = 'rgba(255,255,255,0.08)';
+
   panel.style.textAlign = 'center';
 
   panel.innerHTML = `
-    <h2>🔥 PEDIDO #${numeroPedido}</h2>
-    <p>✅ Pedido preparado correctamente.</p>
-    <p>📱 Se abrió WhatsApp para enviarlo.</p>
-    <p>💰 Total: $${total}</p>
-  `;
+
+      <h2>
+        🔥 PEDIDO #${numeroPedido}
+      </h2>
+
+      <p>
+        ✅ Pedido preparado correctamente.
+      </p>
+
+      <p>
+        📱 Se abrió WhatsApp para enviarlo.
+      </p>
+
+      <p>
+        💰 Total: $${total}
+      </p>
+
+    `;
 
   contenido.appendChild(panel);
 
