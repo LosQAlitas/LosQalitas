@@ -1,6 +1,7 @@
 // ==========================================
 // LOS +QALITAS
 // PANEL DEL EQUIPO
+// AUTENTICACIÓN CON CLOUDFLARE WORKER
 // ==========================================
 
 const API_URL = 'https://losqalitas-api.traposyayomexico.workers.dev';
@@ -36,89 +37,199 @@ const contadorListos = document.getElementById('contador-listos');
 const botonesFiltro = document.querySelectorAll('.filtro');
 
 // ==========================================
-// SESIÓN TEMPORAL
+// SESIÓN
 // ==========================================
 
-let usuarioActual = '';
+let tokenSesion = sessionStorage.getItem('losqalitas_token');
+
+let usuarioActual = null;
 
 let filtroActual = 'todos';
 
 let pedidos = [];
 
 // ==========================================
-// LOGIN DE PRUEBA
+// HEADERS AUTENTICADOS
 // ==========================================
 
-// IMPORTANTE:
-// Esto es solamente para probar el panel.
-// Después lo reemplazaremos por
-// Cloudflare Access.
+function headersAutenticados() {
+  return {
+    'Content-Type': 'application/json',
 
-const USUARIO_PRUEBA = 'yayo';
-
-const PASSWORD_PRUEBA = 'qalitas123';
+    Authorization: `Bearer ${tokenSesion}`,
+  };
+}
 
 // ==========================================
 // LOGIN
 // ==========================================
 
-formLogin.addEventListener('submit', (event) => {
+formLogin.addEventListener('submit', async (event) => {
   event.preventDefault();
 
   const usuario = usuarioInput.value.trim();
 
   const password = passwordInput.value;
 
-  if (usuario === USUARIO_PRUEBA && password === PASSWORD_PRUEBA) {
-    iniciarSesion(usuario);
+  mensajeLogin.textContent = '';
+
+  if (!usuario || !password) {
+    mensajeLogin.textContent = 'Escribe usuario y contraseña.';
 
     return;
   }
 
-  mensajeLogin.textContent = 'Usuario o contraseña incorrectos.';
+  const boton = formLogin.querySelector('.btn-login');
+
+  if (boton) {
+    boton.disabled = true;
+
+    boton.textContent = 'Entrando...';
+  }
+
+  try {
+    const respuesta = await fetch(`${API_URL}/login`, {
+      method: 'POST',
+
+      headers: {
+        'Content-Type': 'application/json',
+      },
+
+      body: JSON.stringify({
+        usuario,
+        password,
+      }),
+    });
+
+    const resultado = await respuesta.json();
+
+    if (!respuesta.ok || !resultado.ok || !resultado.token) {
+      throw new Error(resultado.error || 'Usuario o contraseña incorrectos.');
+    }
+
+    tokenSesion = resultado.token;
+
+    usuarioActual = resultado.usuario;
+
+    sessionStorage.setItem('losqalitas_token', tokenSesion);
+
+    mostrarPanel();
+  } catch (error) {
+    console.error('❌ Error en login:', error);
+
+    mensajeLogin.textContent = error.message || 'No se pudo iniciar sesión.';
+  } finally {
+    if (boton) {
+      boton.disabled = false;
+
+      boton.textContent = 'Entrar';
+    }
+  }
 });
 
 // ==========================================
-// INICIAR SESIÓN
+// MOSTRAR PANEL
 // ==========================================
 
-function iniciarSesion(usuario) {
-  usuarioActual = usuario;
-
-  usuarioActivo.textContent = `👤 ${usuario}`;
-
+function mostrarPanel() {
   pantallaLogin.classList.add('oculto');
 
   panelEquipo.classList.remove('oculto');
 
-  mensajeLogin.textContent = '';
+  if (usuarioActual) {
+    usuarioActivo.textContent = `👤 ${usuarioActual.nombre}`;
+  }
 
   formLogin.reset();
 
+  mensajeLogin.textContent = '';
+
   cargarPedidos();
+}
+
+// ==========================================
+// COMPROBAR SESIÓN AL ABRIR
+// ==========================================
+
+async function comprobarSesion() {
+  if (!tokenSesion) {
+    return;
+  }
+
+  try {
+    const respuesta = await fetch(`${API_URL}/me`, {
+      headers: {
+        Authorization: `Bearer ${tokenSesion}`,
+      },
+    });
+
+    const resultado = await respuesta.json();
+
+    if (!respuesta.ok || !resultado.ok) {
+      throw new Error('Sesión inválida');
+    }
+
+    usuarioActual = resultado.usuario;
+
+    mostrarPanel();
+  } catch (error) {
+    cerrarSesionLocal();
+  }
 }
 
 // ==========================================
 // CERRAR SESIÓN
 // ==========================================
 
-btnSalir.addEventListener('click', () => {
-  usuarioActual = '';
+btnSalir.addEventListener('click', async () => {
+  try {
+    if (tokenSesion) {
+      await fetch(`${API_URL}/logout`, {
+        method: 'POST',
+
+        headers: {
+          Authorization: `Bearer ${tokenSesion}`,
+        },
+      });
+    }
+  } catch (error) {
+    console.warn('No se pudo cerrar sesión en el servidor.', error);
+  }
+
+  cerrarSesionLocal();
+});
+
+// ==========================================
+// CERRAR SESIÓN LOCAL
+// ==========================================
+
+function cerrarSesionLocal() {
+  tokenSesion = null;
+
+  usuarioActual = null;
+
+  pedidos = [];
+
+  sessionStorage.removeItem('losqalitas_token');
 
   panelEquipo.classList.add('oculto');
 
   pantallaLogin.classList.remove('oculto');
 
-  pedidos = [];
+  mensajeLogin.textContent = '';
 
   renderizarPedidos();
-});
+}
 
 // ==========================================
 // CARGAR PEDIDOS
 // ==========================================
 
 async function cargarPedidos() {
+  if (!tokenSesion) {
+    return;
+  }
+
   listaPedidos.innerHTML = `
 
     <div class="sin-pedidos">
@@ -140,9 +251,17 @@ async function cargarPedidos() {
   `;
 
   try {
-    const respuesta = await fetch(`${API_URL}/pedidos`);
+    const respuesta = await fetch(`${API_URL}/pedidos`, {
+      headers: headersAutenticados(),
+    });
 
     const resultado = await respuesta.json();
+
+    if (respuesta.status === 401) {
+      cerrarSesionLocal();
+
+      return;
+    }
 
     if (!respuesta.ok || !resultado.ok) {
       throw new Error(resultado.error || 'No se pudieron cargar los pedidos.');
@@ -500,9 +619,7 @@ async function cambiarEstado(id, estado) {
     const respuesta = await fetch(`${API_URL}/actualizar-pedido`, {
       method: 'POST',
 
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      headers: headersAutenticados(),
 
       body: JSON.stringify({
         id,
@@ -511,6 +628,12 @@ async function cambiarEstado(id, estado) {
     });
 
     const resultado = await respuesta.json();
+
+    if (respuesta.status === 401) {
+      cerrarSesionLocal();
+
+      return;
+    }
 
     if (!respuesta.ok || !resultado.ok) {
       throw new Error(resultado.error || 'No se pudo actualizar el pedido.');
@@ -552,12 +675,8 @@ botonesFiltro.forEach((boton) => {
 // ACTUALIZACIÓN AUTOMÁTICA
 // ==========================================
 
-// Por ahora actualizamos cada 10 segundos.
-// Después podemos convertirlo en actualización
-// en tiempo real.
-
 setInterval(() => {
-  if (!panelEquipo.classList.contains('oculto')) {
+  if (tokenSesion && !panelEquipo.classList.contains('oculto')) {
     cargarPedidos();
   }
 }, 10000);
@@ -590,3 +709,9 @@ function formatearFecha(fecha) {
 function escaparHTML(texto) {
   return String(texto).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
 }
+
+// ==========================================
+// INICIAR
+// ==========================================
+
+comprobarSesion();
