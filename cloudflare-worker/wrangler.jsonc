@@ -1,0 +1,12 @@
+﻿{
+  "name": "losqalitas-api",
+  "main": "worker.js",
+  "compatibility_date": "2026-08-13",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "losqalitas",
+      "database_id": "c977cf14-7749-4271-847f-83a93dc91397"
+    }
+  ]
+}

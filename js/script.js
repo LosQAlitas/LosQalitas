@@ -99,43 +99,72 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
+
           <input
             type="checkbox"
             value="BBQ"
           >
-          <span>BBQ</span>
+
+          <span>
+            BBQ
+          </span>
+
         </label>
 
+
         <label class="opcion-salsa">
+
           <input
             type="checkbox"
             value="Búfalo"
           >
-          <span>Búfalo</span>
+
+          <span>
+            Búfalo
+          </span>
+
         </label>
 
+
         <label class="opcion-salsa">
+
           <input
             type="checkbox"
             value="Salsa inglesa"
           >
-          <span>Salsa inglesa</span>
+
+          <span>
+            Salsa inglesa
+          </span>
+
         </label>
 
+
         <label class="opcion-salsa">
+
           <input
             type="checkbox"
             value="Salsa Maggie"
           >
-          <span>Salsa Maggie</span>
+
+          <span>
+            Salsa Maggie
+          </span>
+
         </label>
 
+
         <label class="opcion-salsa">
+
           <input
             type="checkbox"
             value="BBQ Picoso"
           >
-          <span>BBQ Picoso</span>
+
+          <span>
+            BBQ Picoso
+          </span>
+
         </label>
 
       </div>
@@ -160,43 +189,72 @@ function abrirConfiguracion(nombre, precio) {
       <div class="lista-salsas">
 
         <label class="opcion-salsa">
+
           <input
             type="checkbox"
             value="BBQ"
           >
-          <span>BBQ</span>
+
+          <span>
+            BBQ
+          </span>
+
         </label>
 
+
         <label class="opcion-salsa">
+
           <input
             type="checkbox"
             value="Búfalo"
           >
-          <span>Búfalo</span>
+
+          <span>
+            Búfalo
+          </span>
+
         </label>
 
+
         <label class="opcion-salsa">
+
           <input
             type="checkbox"
             value="Salsa inglesa"
           >
-          <span>Salsa inglesa</span>
+
+          <span>
+            Salsa inglesa
+          </span>
+
         </label>
 
+
         <label class="opcion-salsa">
+
           <input
             type="checkbox"
             value="Salsa Maggie"
           >
-          <span>Salsa Maggie</span>
+
+          <span>
+            Salsa Maggie
+          </span>
+
         </label>
 
+
         <label class="opcion-salsa">
+
           <input
             type="checkbox"
             value="BBQ Picoso"
           >
-          <span>BBQ Picoso</span>
+
+          <span>
+            BBQ Picoso
+          </span>
+
         </label>
 
       </div>
@@ -276,9 +334,11 @@ function abrirConfiguracion(nombre, precio) {
           Incluye automáticamente:
         </strong>
 
+
         <div>
           🍍 Piña
         </div>
+
 
         <div>
           🥩 Jamón
@@ -297,9 +357,11 @@ function abrirConfiguracion(nombre, precio) {
         Elige tu queso
       </h3>
 
+
       <p class="ayuda-salsas">
         Opcional.
       </p>
+
 
       <div class="lista-salsas">
 
@@ -330,9 +392,11 @@ function abrirConfiguracion(nombre, precio) {
         Toppings
       </h3>
 
+
       <p class="ayuda-salsas">
         Puedes elegir todos los que quieras.
       </p>
+
 
       <div class="lista-salsas">
 
@@ -393,9 +457,11 @@ function abrirConfiguracion(nombre, precio) {
         Salsas
       </h3>
 
+
       <p class="ayuda-salsas">
         Puedes elegir todas las que quieras.
       </p>
+
 
       <div class="lista-salsas">
 
@@ -475,6 +541,7 @@ function abrirConfiguracion(nombre, precio) {
       <h3>
         Elige tu cerveza
       </h3>
+
 
       <div class="lista-salsas">
 
@@ -580,9 +647,11 @@ function abrirConfiguracion(nombre, precio) {
         Elige tu untable
       </h3>
 
+
       <p class="ayuda-salsas">
         Elige 1.
       </p>
+
 
       <div class="lista-salsas">
 
@@ -656,9 +725,11 @@ function abrirConfiguracion(nombre, precio) {
         Elige tu fruta
       </h3>
 
+
       <p class="ayuda-salsas">
         Elige 1.
       </p>
+
 
       <div class="lista-salsas">
 
@@ -717,9 +788,11 @@ function abrirConfiguracion(nombre, precio) {
         Elige tu topping
       </h3>
 
+
       <p class="ayuda-salsas">
         Elige 1.
       </p>
+
 
       <div class="lista-salsas">
 
@@ -767,6 +840,7 @@ function abrirConfiguracion(nombre, precio) {
           ¿Quieres agregar algo más?
         </h3>
 
+
         <p class="ayuda-salsas">
           Nutella y Fresa +$10 · Los demás +$5
         </p>
@@ -775,6 +849,7 @@ function abrirConfiguracion(nombre, precio) {
         <h4>
           Untables extras
         </h4>
+
 
         <div class="lista-salsas">
 
@@ -848,6 +923,7 @@ function abrirConfiguracion(nombre, precio) {
           Frutas extras
         </h4>
 
+
         <div class="lista-salsas">
 
           <label class="opcion-salsa">
@@ -903,6 +979,7 @@ function abrirConfiguracion(nombre, precio) {
         <h4>
           Toppings extras
         </h4>
+
 
         <div class="lista-salsas">
 
@@ -1101,7 +1178,6 @@ agregarConfigurado.addEventListener('click', () => {
   else if (nombre === 'Hamburguesas') {
     const tipo = configuracionProducto.querySelector('input[name="hamburguesa"]:checked');
 
-    // EL QUESO ES OPCIONAL
     const queso = configuracionProducto.querySelector('input[name="queso-hamburguesa"]:checked');
 
     if (!tipo) {
@@ -1114,31 +1190,19 @@ agregarConfigurado.addEventListener('click', () => {
 
     const salsas = Array.from(configuracionProducto.querySelectorAll('.salsa-hamburguesa:checked')).map((input) => input.value);
 
-    // ======================================
-    // CONSTRUIR DETALLE
-    // ======================================
-
     let detalle = `Tipo: ${tipo.value}`;
-
-    // QUESO SOLO SI LO ELIGIERON
 
     if (queso) {
       detalle += ` · Queso: ${queso.value}`;
     }
 
-    // HAWAIANA
-
     if (tipo.value === 'Hawaiana') {
       detalle += ' · Incluye: Piña, Jamón';
     }
 
-    // TOPPINGS
-
     if (toppings.length > 0) {
       detalle += ` · Toppings: ${toppings.join(', ')}`;
     }
-
-    // SALSAS
 
     if (salsas.length > 0) {
       detalle += ` · Salsas: ${salsas.join(', ')}`;
@@ -1467,17 +1531,17 @@ function crearSeccionEstacion(contenedor, titulo, productosEstacion, numeros, nu
 
   const total = calcularTotal(productosEstacion);
 
-  const mensaje = `🔥 LOS +QALITAS
+  const mensaje = `LOS +QALITAS
 
-🧾 PEDIDO #${numeroPedido}
+PEDIDO #${numeroPedido}
 
-📍 ${titulo}
+${titulo}
 
 ${crearTextoProductos(productosEstacion)}
 
 TOTAL DE ESTA ESTACIÓN: $${total}
 
-⚠️ PEDIDO #${numeroPedido}`;
+PEDIDO #${numeroPedido}`;
 
   const encabezado = document.createElement('h3');
 
@@ -1497,25 +1561,66 @@ TOTAL DE ESTA ESTACIÓN: $${total}
 }
 
 // ==========================================
-// HACER PEDIDO - WHATSAPP DIRECTO
+// HACER PEDIDO
 // ==========================================
 
-hacerPedido.addEventListener('click', () => {
+hacerPedido.addEventListener('click', async () => {
+  // ======================================
+  // COMPROBAR CARRITO
+  // ======================================
+
   if (pedido.length === 0) {
     alert('Tu pedido está vacío.');
 
     return;
   }
 
-  let numeroPedido = Number(localStorage.getItem('numeroPedidoLosQalitas')) || 0;
-
-  numeroPedido++;
-
-  localStorage.setItem('numeroPedidoLosQalitas', numeroPedido);
+  // ======================================
+  // CALCULAR TOTAL
+  // ======================================
 
   const total = pedido.reduce((suma, producto) => suma + producto.precio, 0);
 
-  let mensaje = `🔥 LOS +QALITAS\n\n` + `🧾 PEDIDO #${numeroPedido}\n\n`;
+  // ======================================
+  // GUARDAR PEDIDO EN CLOUDFLARE
+  // ======================================
+
+  let numeroPedido = null;
+
+  try {
+    const respuesta = await fetch('https://losqalitas-api.traposyayomexico.workers.dev/crear-pedido', {
+      method: 'POST',
+
+      headers: {
+        'Content-Type': 'application/json',
+      },
+
+      body: JSON.stringify({
+        productos: pedido,
+        total: total,
+      }),
+    });
+
+    const resultado = await respuesta.json();
+
+    if (!respuesta.ok || !resultado.ok || !resultado.numeroPedido) {
+      throw new Error(resultado.error || 'No se pudo crear el pedido.');
+    }
+
+    numeroPedido = resultado.numeroPedido;
+  } catch (error) {
+    console.error('❌ Error creando pedido:', error);
+
+    alert('No se pudo enviar el pedido.\n\n' + 'Revisa tu conexión e inténtalo nuevamente.');
+
+    return;
+  }
+
+  // ======================================
+  // CREAR MENSAJE DE WHATSAPP
+  // ======================================
+
+  let mensaje = `LOS +QALITAS\n\n` + `PEDIDO #${numeroPedido}\n\n`;
 
   pedido.forEach((producto, indice) => {
     mensaje += `${indice + 1}. ${producto.nombre}\n`;
@@ -1527,10 +1632,10 @@ hacerPedido.addEventListener('click', () => {
     mensaje += `   Precio: $${producto.precio}\n\n`;
   });
 
-  mensaje += `💰 TOTAL: $${total}\n\n` + `⚠️ PEDIDO #${numeroPedido}`;
+  mensaje += `TOTAL: $${total}\n\n` + `PEDIDO #${numeroPedido}`;
 
   // ======================================
-  // ÚNICO WHATSAPP
+  // WHATSAPP
   // ======================================
 
   const numeroWhatsApp = '525645973242';
@@ -1568,24 +1673,27 @@ hacerPedido.addEventListener('click', () => {
   panel.innerHTML = `
 
       <h2>
-        🔥 PEDIDO #${numeroPedido}
+        PEDIDO #${numeroPedido}
       </h2>
 
-      <p>
-        ✅ Pedido preparado correctamente.
-      </p>
 
       <p>
-        📱 Se abrió WhatsApp para enviarlo.
+        Pedido preparado correctamente.
       </p>
 
+
       <p>
-        💰 Total: $${total}
+        Se abrió WhatsApp para enviarlo.
+      </p>
+
+
+      <p>
+        Total: $${total}
       </p>
 
     `;
 
   contenido.appendChild(panel);
 
-  alert(`🔥 PEDIDO #${numeroPedido}\n\n` + `Tu pedido está listo.\n\n` + `📱 Se abrió WhatsApp para enviarlo.\n\n` + `💰 Total: $${total}`);
+  alert(`PEDIDO #${numeroPedido}\n\n` + `Tu pedido está listo.\n\n` + `Se abrió WhatsApp para enviarlo.\n\n` + `Total: $${total}`);
 });
