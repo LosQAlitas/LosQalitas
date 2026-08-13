@@ -1672,28 +1672,74 @@ hacerPedido.addEventListener('click', async () => {
 
   panel.innerHTML = `
 
-      <h2>
-        PEDIDO #${numeroPedido}
-      </h2>
+  <div
+    style="
+      text-align:center;
+      padding:10px 0;
+    "
+  >
 
+    <div
+      style="
+        font-size:48px;
+        margin-bottom:10px;
+      "
+    >
+      🎉
+    </div>
 
-      <p>
-        Pedido preparado correctamente.
-      </p>
+    <h2
+      style="
+        margin-bottom:10px;
+      "
+    >
+      ¡PEDIDO REALIZADO!
+    </h2>
 
+    <p
+      style="
+        font-size:18px;
+        margin:8px 0;
+      "
+    >
+      Tu pedido es el
+    </p>
 
-      <p>
-        Se abrió WhatsApp para enviarlo.
-      </p>
+    <div
+      style="
+        font-size:38px;
+        font-weight:bold;
+        color:#f5b900;
+        margin:8px 0 15px;
+      "
+    >
+      #${numeroPedido}
+    </div>
 
+    <p
+      style="
+        font-size:18px;
+        margin:8px 0;
+      "
+    >
+      💰 Total: $${total}
+    </p>
 
-      <p>
-        Total: $${total}
-      </p>
+    <p
+      style="
+        margin-top:18px;
+      "
+    >
+      ¡Gracias por comprar en<br>
+      <strong>Los +Qalitas!</strong>
+    </p>
 
-    `;
+  </div>
+
+`;
 
   contenido.appendChild(panel);
 
-  alert(`PEDIDO #${numeroPedido}\n\n` + `Tu pedido está listo.\n\n` + `Se abrió WhatsApp para enviarlo.\n\n` + `Total: $${total}`);
+  // Ocultar botón para evitar pedidos duplicados
+  hacerPedido.style.display = 'none';
 });
