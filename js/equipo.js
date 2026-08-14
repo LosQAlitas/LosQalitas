@@ -603,13 +603,20 @@ function actualizarContadores() {
 
   const listos = pedidos.filter((pedido) => pedido.estado === 'listo').length;
 
+  const ventas = pedidos.filter((pedido) => pedido.estado === 'entregado').reduce((total, pedido) => total + Number(pedido.total || 0), 0);
+
   contadorNuevos.textContent = nuevos;
 
   contadorPreparando.textContent = preparando;
 
   contadorListos.textContent = listos;
-}
 
+  const contadorVentas = document.getElementById('contador-ventas');
+
+  if (contadorVentas) {
+    contadorVentas.textContent = `$${ventas}`;
+  }
+}
 // ==========================================
 // CAMBIAR ESTADO
 // ==========================================
