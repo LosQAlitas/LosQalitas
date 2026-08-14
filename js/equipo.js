@@ -47,6 +47,95 @@ let usuarioActual = null;
 let filtroActual = 'todos';
 
 let pedidos = [];
+// ==========================================
+// SONIDO DE PEDIDOS NUEVOS
+// ==========================================
+
+let pedidosConocidos = new Set();
+
+let primeraCargaPedidos = true;
+
+let audioContext = null;
+
+// ==========================================
+// ACTIVAR AUDIO
+// ==========================================
+
+function activarAudio() {
+  if (!audioContext) {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+
+    if (AudioContext) {
+      audioContext = new AudioContext();
+    }
+  }
+
+  if (audioContext && audioContext.state === 'suspended') {
+    audioContext.resume();
+  }
+}
+
+// ==========================================
+// SONIDO + VOZ DE NUEVO PEDIDO
+// ==========================================
+
+function reproducirSonidoNuevoPedido() {
+  // ------------------------------------------
+  // SONIDO DE AVISO
+  // ------------------------------------------
+
+  activarAudio();
+
+  if (audioContext) {
+    const ahora = audioContext.currentTime;
+
+    const oscilador = audioContext.createOscillator();
+
+    const ganancia = audioContext.createGain();
+
+    oscilador.type = 'sine';
+
+    oscilador.frequency.setValueAtTime(659, ahora);
+
+    oscilador.frequency.setValueAtTime(880, ahora + 0.12);
+
+    oscilador.frequency.setValueAtTime(1046, ahora + 0.24);
+
+    ganancia.gain.setValueAtTime(0, ahora);
+
+    ganancia.gain.linearRampToValueAtTime(0.28, ahora + 0.02);
+
+    ganancia.gain.linearRampToValueAtTime(0, ahora + 0.42);
+
+    oscilador.connect(ganancia);
+
+    ganancia.connect(audioContext.destination);
+
+    oscilador.start(ahora);
+
+    oscilador.stop(ahora + 0.42);
+  }
+
+  // ------------------------------------------
+  // VOZ
+  // ------------------------------------------
+
+  if ('speechSynthesis' in window) {
+    window.speechSynthesis.cancel();
+
+    const mensaje = new SpeechSynthesisUtterance('¡Pedido recibido!');
+
+    mensaje.lang = 'es-MX';
+
+    mensaje.rate = 0.95;
+
+    mensaje.pitch = 1.05;
+
+    mensaje.volume = 1;
+
+    window.speechSynthesis.speak(mensaje);
+  }
+}
 
 // ==========================================
 // HEADERS AUTENTICADOS
@@ -132,6 +221,7 @@ formLogin.addEventListener('submit', async (event) => {
 // ==========================================
 
 function mostrarPanel() {
+  activarAudio();
   pantallaLogin.classList.add('oculto');
 
   panelEquipo.classList.remove('oculto');
@@ -267,7 +357,35 @@ async function cargarPedidos() {
       throw new Error(resultado.error || 'No se pudieron cargar los pedidos.');
     }
 
-    pedidos = Array.isArray(resultado.pedidos) ? resultado.pedidos : [];
+    const pedidosNuevos = Array.isArray(resultado.pedidos) ? resultado.pedidos : [];
+
+    // ======================================
+    // DETECTAR PEDIDOS NUEVOS
+    // ======================================
+
+    if (!primeraCargaPedidos) {
+      const hayPedidoNuevo = pedidosNuevos.some((pedido) => {
+        return pedido.estado === 'nuevo' && !pedidosConocidos.has(Number(pedido.id));
+      });
+
+      if (hayPedidoNuevo) {
+        reproducirSonidoNuevoPedido();
+      }
+    }
+
+    // ======================================
+    // GUARDAR PEDIDOS CONOCIDOS
+    // ======================================
+
+    pedidosNuevos.forEach((pedido) => {
+      pedidosConocidos.add(Number(pedido.id));
+    });
+
+    primeraCargaPedidos = false;
+
+    pedidos = pedidosNuevos;
+
+    renderizarPedidos();
 
     renderizarPedidos();
   } catch (error) {
