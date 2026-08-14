@@ -268,250 +268,252 @@ function abrirConfiguracion(nombre, precio) {
   else if (nombre === 'Hamburguesas') {
     configuracionProducto.innerHTML = `
 
-      <h3>
-        Elige tu hamburguesa
-      </h3>
+    <h3>
+      Elige tu hamburguesa
+    </h3>
 
-      <p class="ayuda-salsas">
-        Elige 1.
-      </p>
+    <p class="ayuda-salsas">
+      Elige 1.
+    </p>
 
-      <div class="lista-salsas">
+    <div class="lista-salsas">
 
-        <label class="opcion-salsa">
+      <label class="opcion-salsa">
 
-          <input
-            type="radio"
-            name="hamburguesa"
-            value="Sencilla"
-          >
-
-          <span>
-            🍔 Sencilla
-          </span>
-
-        </label>
-
-
-        <label class="opcion-salsa">
-
-          <input
-            type="radio"
-            name="hamburguesa"
-            value="Hawaiana"
-          >
-
-          <span>
-            🍍 Hawaiana
-          </span>
-
-        </label>
-
-      </div>
-
-
-      <!-- INGREDIENTES HAWAIANA -->
-
-      <div
-        id="ingredientes-hawaiana"
-        style="
-          display:none;
-          margin-top:12px;
-          padding:12px;
-          background:#111;
-          border-radius:10px;
-          color:#ddd;
-        "
-      >
-
-        <strong
-          style="
-            color:#f5b900;
-            display:block;
-            margin-bottom:6px;
-          "
+        <input
+          type="radio"
+          name="hamburguesa"
+          value="Sencilla"
+          data-precio="75"
         >
-          Incluye automáticamente:
-        </strong>
+
+        <span>
+          🍔 Sencilla · $75
+        </span>
+
+      </label>
 
 
-        <div>
-          🍍 Piña
-        </div>
+      <label class="opcion-salsa">
+
+        <input
+          type="radio"
+          name="hamburguesa"
+          value="Hawaiana"
+          data-precio="85"
+        >
+
+        <span>
+          🍍 Hawaiana · $85
+        </span>
+
+      </label>
+
+    </div>
 
 
-        <div>
-          🥩 Jamón
-        </div>
+    <!-- INGREDIENTES HAWAIANA -->
 
-      </div>
+    <div
+      id="ingredientes-hawaiana"
+      style="
+        display:none;
+        margin-top:12px;
+        padding:12px;
+        background:#111;
+        border-radius:10px;
+        color:#ddd;
+      "
+    >
 
-
-      <!-- QUESO -->
-
-      <h3
+      <strong
         style="
-          margin-top:20px;
+          color:#f5b900;
+          display:block;
+          margin-bottom:6px;
         "
       >
-        Elige tu queso
-      </h3>
+        Incluye automáticamente:
+      </strong>
 
 
-      <p class="ayuda-salsas">
-        Opcional.
-      </p>
-
-
-      <div class="lista-salsas">
-
-        <label class="opcion-salsa">
-
-          <input
-            type="radio"
-            name="queso-hamburguesa"
-            value="Americano"
-          >
-
-          <span>
-            🧀 Americano
-          </span>
-
-        </label>
-
+      <div>
+        🍍 Piña
       </div>
 
 
-      <!-- TOPPINGS -->
-
-      <h3
-        style="
-          margin-top:20px;
-        "
-      >
-        Toppings
-      </h3>
-
-
-      <p class="ayuda-salsas">
-        Puedes elegir todos los que quieras.
-      </p>
-
-
-      <div class="lista-salsas">
-
-        <label class="opcion-salsa">
-
-          <input
-            type="checkbox"
-            class="topping-hamburguesa"
-            value="Lechuga"
-          >
-
-          <span>
-            🥬 Lechuga
-          </span>
-
-        </label>
-
-
-        <label class="opcion-salsa">
-
-          <input
-            type="checkbox"
-            class="topping-hamburguesa"
-            value="Jitomate"
-          >
-
-          <span>
-            🍅 Jitomate
-          </span>
-
-        </label>
-
-
-        <label class="opcion-salsa">
-
-          <input
-            type="checkbox"
-            class="topping-hamburguesa"
-            value="Cebolla"
-          >
-
-          <span>
-            🧅 Cebolla
-          </span>
-
-        </label>
-
+      <div>
+        🥩 Jamón
       </div>
 
-
-      <!-- SALSAS -->
-
-      <h3
-        style="
-          margin-top:20px;
-        "
-      >
-        Salsas
-      </h3>
+    </div>
 
 
-      <p class="ayuda-salsas">
-        Puedes elegir todas las que quieras.
-      </p>
+    <!-- QUESO -->
+
+    <h3
+      style="
+        margin-top:20px;
+      "
+    >
+      Elige tu queso
+    </h3>
 
 
-      <div class="lista-salsas">
-
-        <label class="opcion-salsa">
-
-          <input
-            type="checkbox"
-            class="salsa-hamburguesa"
-            value="Kétchup"
-          >
-
-          <span>
-            🍅 Kétchup
-          </span>
-
-        </label>
+    <p class="ayuda-salsas">
+      Opcional.
+    </p>
 
 
-        <label class="opcion-salsa">
+    <div class="lista-salsas">
 
-          <input
-            type="checkbox"
-            class="salsa-hamburguesa"
-            value="Mostaza"
-          >
+      <label class="opcion-salsa">
 
-          <span>
-            💛 Mostaza
-          </span>
+        <input
+          type="radio"
+          name="queso-hamburguesa"
+          value="Americano"
+        >
 
-        </label>
+        <span>
+          🧀 Americano
+        </span>
+
+      </label>
+
+    </div>
 
 
-        <label class="opcion-salsa">
+    <!-- TOPPINGS -->
 
-          <input
-            type="checkbox"
-            class="salsa-hamburguesa"
-            value="Mayonesa"
-          >
+    <h3
+      style="
+        margin-top:20px;
+      "
+    >
+      Toppings
+    </h3>
 
-          <span>
-            🥚 Mayonesa
-          </span>
 
-        </label>
+    <p class="ayuda-salsas">
+      Puedes elegir todos los que quieras.
+    </p>
 
-      </div>
 
-    `;
+    <div class="lista-salsas">
+
+      <label class="opcion-salsa">
+
+        <input
+          type="checkbox"
+          class="topping-hamburguesa"
+          value="Lechuga"
+        >
+
+        <span>
+          🥬 Lechuga
+        </span>
+
+      </label>
+
+
+      <label class="opcion-salsa">
+
+        <input
+          type="checkbox"
+          class="topping-hamburguesa"
+          value="Jitomate"
+        >
+
+        <span>
+          🍅 Jitomate
+        </span>
+
+      </label>
+
+
+      <label class="opcion-salsa">
+
+        <input
+          type="checkbox"
+          class="topping-hamburguesa"
+          value="Cebolla"
+        >
+
+        <span>
+          🧅 Cebolla
+        </span>
+
+      </label>
+
+    </div>
+
+
+    <!-- SALSAS -->
+
+    <h3
+      style="
+        margin-top:20px;
+      "
+    >
+      Salsas
+    </h3>
+
+
+    <p class="ayuda-salsas">
+      Puedes elegir todas las que quieras.
+    </p>
+
+
+    <div class="lista-salsas">
+
+      <label class="opcion-salsa">
+
+        <input
+          type="checkbox"
+          class="salsa-hamburguesa"
+          value="Kétchup"
+        >
+
+        <span>
+          🍅 Kétchup
+        </span>
+
+      </label>
+
+
+      <label class="opcion-salsa">
+
+        <input
+          type="checkbox"
+          class="salsa-hamburguesa"
+          value="Mostaza"
+        >
+
+        <span>
+          💛 Mostaza
+        </span>
+
+      </label>
+
+
+      <label class="opcion-salsa">
+
+        <input
+          type="checkbox"
+          class="salsa-hamburguesa"
+          value="Mayonesa"
+        >
+
+        <span>
+          🥚 Mayonesa
+        </span>
+
+      </label>
+
+    </div>
+
+  `;
 
     // ======================================
     // MOSTRAR PIÑA Y JAMÓN
@@ -1134,10 +1136,12 @@ agregarConfigurado.addEventListener('click', () => {
       return;
     }
 
+    const precioProducto = nombre === 'Alitas' ? 70 : 65;
+
     pedido.push({
       nombre,
 
-      precio: precioBase,
+      precio: precioProducto,
 
       detalle: `Salsas: ${seleccionadas.join(', ')}`,
     });
@@ -1182,7 +1186,6 @@ agregarConfigurado.addEventListener('click', () => {
 
     if (!tipo) {
       alert('Elige una hamburguesa.');
-
       return;
     }
 
@@ -1208,10 +1211,12 @@ agregarConfigurado.addEventListener('click', () => {
       detalle += ` · Salsas: ${salsas.join(', ')}`;
     }
 
+    const precioHamburguesa = tipo.value === 'Hawaiana' ? 85 : 75;
+
     pedido.push({
       nombre,
 
-      precio: precioBase,
+      precio: precioHamburguesa,
 
       detalle,
     });
