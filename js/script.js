@@ -261,7 +261,55 @@ function abrirConfiguracion(nombre, precio) {
 
     `;
   }
+  // ========================================
+  // PAPAS A LA FRANCESA
+  // ========================================
+  else if (nombre === 'Papas a la francesa') {
+    configuracionProducto.innerHTML = `
 
+    <h3>
+      Elige tus aderezos
+    </h3>
+
+    <p class="ayuda-salsas">
+      Puedes elegir uno o los dos.
+    </p>
+
+    <div class="lista-salsas">
+
+      <label class="opcion-salsa">
+
+        <input
+          type="checkbox"
+          name="aderezo-papas"
+          value="Kétchup"
+        >
+
+        <span>
+          🍅 Kétchup
+        </span>
+
+      </label>
+
+
+      <label class="opcion-salsa">
+
+        <input
+          type="checkbox"
+          name="aderezo-papas"
+          value="Queso"
+        >
+
+        <span>
+          🧀 Queso
+        </span>
+
+      </label>
+
+    </div>
+
+  `;
+  }
   // ========================================
   // HAMBURGUESAS
   // ========================================
@@ -778,7 +826,19 @@ function abrirConfiguracion(nombre, precio) {
           </span>
 
         </label>
+<label class="opcion-salsa">
 
+  <input
+    type="radio"
+    name="fruta"
+    value="Uva"
+  >
+
+  <span>
+    🍇 Uva
+  </span>
+
+</label>
       </div>
 
 
@@ -818,11 +878,11 @@ function abrirConfiguracion(nombre, precio) {
           <input
             type="radio"
             name="topping"
-            value="Chispas de chocolate"
+            value="Granillo de chocolate"
           >
 
           <span>
-            🍫 Chispas de chocolate
+            🍫 Granillo de chocolate
           </span>
 
         </label>
@@ -974,7 +1034,20 @@ function abrirConfiguracion(nombre, precio) {
             </span>
 
           </label>
+<label class="opcion-salsa">
 
+  <input
+    type="checkbox"
+    class="extra-ingrediente"
+    value="Uva"
+    data-precio="10"
+  >
+
+  <span>
+    🍇 Uva +$10
+  </span>
+
+</label>
         </div>
 
 
@@ -1006,12 +1079,12 @@ function abrirConfiguracion(nombre, precio) {
             <input
               type="checkbox"
               class="extra-ingrediente"
-              value="Chispas de chocolate"
+              value="Granillo de chocolate"
               data-precio="5"
             >
 
             <span>
-              🍫 Chispas de chocolate +$5
+              🍫 Granillo de chocolate +$5
             </span>
 
           </label>
@@ -1146,7 +1219,26 @@ agregarConfigurado.addEventListener('click', () => {
       detalle: `Salsas: ${seleccionadas.join(', ')}`,
     });
   }
+  // ========================================
+  // PAPAS A LA FRANCESA
+  // ========================================
+  else if (nombre === 'Papas a la francesa') {
+    const aderezos = Array.from(configuracionProducto.querySelectorAll('input[name="aderezo-papas"]:checked')).map((input) => input.value);
 
+    if (aderezos.length === 0) {
+      alert('Elige al menos un aderezo.');
+
+      return;
+    }
+
+    pedido.push({
+      nombre,
+
+      precio: 35,
+
+      detalle: `Aderezos: ${aderezos.join(', ')}`,
+    });
+  }
   // ========================================
   // CERILLOS
   // ========================================
@@ -1622,34 +1714,6 @@ hacerPedido.addEventListener('click', async () => {
   }
 
   // ======================================
-  // CREAR MENSAJE DE WHATSAPP
-  // ======================================
-
-  let mensaje = `LOS +QALITAS\n\n` + `PEDIDO #${numeroPedido}\n\n`;
-
-  pedido.forEach((producto, indice) => {
-    mensaje += `${indice + 1}. ${producto.nombre}\n`;
-
-    if (producto.detalle) {
-      mensaje += `   ${producto.detalle}\n`;
-    }
-
-    mensaje += `   Precio: $${producto.precio}\n\n`;
-  });
-
-  mensaje += `TOTAL: $${total}\n\n` + `PEDIDO #${numeroPedido}`;
-
-  // ======================================
-  // WHATSAPP
-  // ======================================
-
-  const numeroWhatsApp = '525645973242';
-
-  const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-
-  window.open(url, '_blank');
-
-  // ======================================
   // MOSTRAR CONFIRMACIÓN
   // ======================================
 
@@ -1677,74 +1741,82 @@ hacerPedido.addEventListener('click', async () => {
 
   panel.innerHTML = `
 
-  <div
-    style="
-      text-align:center;
-      padding:10px 0;
-    "
-  >
-
     <div
       style="
-        font-size:48px;
-        margin-bottom:10px;
+        text-align:center;
+        padding:10px 0;
       "
     >
-      🎉
+
+      <div
+        style="
+          font-size:48px;
+          margin-bottom:10px;
+        "
+      >
+        🎉
+      </div>
+
+
+      <h2
+        style="
+          margin-bottom:10px;
+        "
+      >
+        ¡PEDIDO REALIZADO!
+      </h2>
+
+
+      <p
+        style="
+          font-size:18px;
+          margin:8px 0;
+        "
+      >
+        Tu pedido es el
+      </p>
+
+
+      <div
+        style="
+          font-size:38px;
+          font-weight:bold;
+          color:#f5b900;
+          margin:8px 0 15px;
+        "
+      >
+        #${numeroPedido}
+      </div>
+
+
+      <p
+        style="
+          font-size:18px;
+          margin:8px 0;
+        "
+      >
+        💰 Total: $${total}
+      </p>
+
+
+      <p
+        style="
+          margin-top:18px;
+        "
+      >
+        ¡Gracias por comprar en<br>
+        <strong>
+          Los +Qalitas!
+        </strong>
+      </p>
+
     </div>
 
-    <h2
-      style="
-        margin-bottom:10px;
-      "
-    >
-      ¡PEDIDO REALIZADO!
-    </h2>
-
-    <p
-      style="
-        font-size:18px;
-        margin:8px 0;
-      "
-    >
-      Tu pedido es el
-    </p>
-
-    <div
-      style="
-        font-size:38px;
-        font-weight:bold;
-        color:#f5b900;
-        margin:8px 0 15px;
-      "
-    >
-      #${numeroPedido}
-    </div>
-
-    <p
-      style="
-        font-size:18px;
-        margin:8px 0;
-      "
-    >
-      💰 Total: $${total}
-    </p>
-
-    <p
-      style="
-        margin-top:18px;
-      "
-    >
-      ¡Gracias por comprar en<br>
-      <strong>Los +Qalitas!</strong>
-    </p>
-
-  </div>
-
-`;
+  `;
 
   contenido.appendChild(panel);
 
   // Ocultar botón para evitar pedidos duplicados
+
   hacerPedido.style.display = 'none';
 });
