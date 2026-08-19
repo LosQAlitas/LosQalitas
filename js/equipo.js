@@ -320,26 +320,6 @@ async function cargarPedidos() {
     return;
   }
 
-  listaPedidos.innerHTML = `
-
-    <div class="sin-pedidos">
-
-      <div class="sin-pedidos-icono">
-        ⏳
-      </div>
-
-      <h2>
-        Cargando pedidos...
-      </h2>
-
-      <p>
-        Estamos consultando D1.
-      </p>
-
-    </div>
-
-  `;
-
   try {
     const respuesta = await fetch(`${API_URL}/pedidos`, {
       headers: headersAutenticados(),
@@ -347,20 +327,32 @@ async function cargarPedidos() {
 
     const resultado = await respuesta.json();
 
+    // ======================================
+    // SESIÓN EXPIRADA
+    // ======================================
+
     if (respuesta.status === 401) {
       cerrarSesionLocal();
 
       return;
     }
 
+    // ======================================
+    // ERROR
+    // ======================================
+
     if (!respuesta.ok || !resultado.ok) {
       throw new Error(resultado.error || 'No se pudieron cargar los pedidos.');
     }
 
+    // ======================================
+    // PEDIDOS RECIBIDOS
+    // ======================================
+
     const pedidosNuevos = Array.isArray(resultado.pedidos) ? resultado.pedidos : [];
 
     // ======================================
-    // DETECTAR PEDIDOS NUEVOS
+    // DETECTAR PEDIDO NUEVO
     // ======================================
 
     if (!primeraCargaPedidos) {
@@ -374,42 +366,101 @@ async function cargarPedidos() {
     }
 
     // ======================================
-    // GUARDAR PEDIDOS CONOCIDOS
+    // COMPROBAR SI CAMBIÓ ALGO
+    // ======================================
+
+    const huboCambios = JSON.stringify(pedidos) !== JSON.stringify(pedidosNuevos);
+
+    // ======================================
+    // PRIMERA CARGA
+    // ======================================
+
+    if (primeraCargaPedidos) {
+      // Guardamos como conocidos
+      // todos los pedidos que ya existían
+
+      pedidosNuevos.forEach((pedido) => {
+        pedidosConocidos.add(Number(pedido.id));
+      });
+
+      primeraCargaPedidos = false;
+
+      pedidos = pedidosNuevos;
+
+      renderizarPedidos();
+
+      return;
+    }
+
+    // ======================================
+    // SI NO CAMBIÓ NADA
+    // ======================================
+
+    if (!huboCambios) {
+      return;
+    }
+
+    // ======================================
+    // GUARDAR NUEVOS PEDIDOS COMO CONOCIDOS
     // ======================================
 
     pedidosNuevos.forEach((pedido) => {
       pedidosConocidos.add(Number(pedido.id));
     });
 
-    primeraCargaPedidos = false;
+    // ======================================
+    // GUARDAR POSICIÓN DEL SCROLL
+    // ======================================
+
+    const scrollY = window.scrollY;
+
+    // ======================================
+    // ACTUALIZAR PEDIDOS
+    // ======================================
 
     pedidos = pedidosNuevos;
 
-    renderizarPedidos();
+    // ======================================
+    // REDIBUJAR
+    // ======================================
 
     renderizarPedidos();
+
+    // ======================================
+    // RESTAURAR POSICIÓN
+    // ======================================
+
+    requestAnimationFrame(() => {
+      window.scrollTo(0, scrollY);
+    });
   } catch (error) {
     console.error('❌ Error cargando pedidos:', error);
 
-    listaPedidos.innerHTML = `
+    // No destruimos una lista que ya
+    // está funcionando solamente porque
+    // falló una actualización automática.
 
-      <div class="sin-pedidos">
+    if (pedidos.length === 0) {
+      listaPedidos.innerHTML = `
 
-        <div class="sin-pedidos-icono">
-          ⚠️
+        <div class="sin-pedidos">
+
+          <div class="sin-pedidos-icono">
+            ⚠️
+          </div>
+
+          <h2>
+            No se pudieron cargar
+          </h2>
+
+          <p>
+            Revisa la conexión con el servidor.
+          </p>
+
         </div>
 
-        <h2>
-          No se pudieron cargar
-        </h2>
-
-        <p>
-          Revisa la conexión con el servidor.
-        </p>
-
-      </div>
-
-    `;
+      `;
+    }
   }
 }
 

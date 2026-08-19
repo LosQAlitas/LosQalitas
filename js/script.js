@@ -166,6 +166,18 @@ function abrirConfiguracion(nombre, precio) {
           </span>
 
         </label>
+        <label class="opcion-salsa">
+
+  <input
+    type="checkbox"
+    value="Valentina"
+  >
+
+  <span>
+    Valentina
+  </span>
+
+</label>
 
       </div>
 
@@ -256,6 +268,18 @@ function abrirConfiguracion(nombre, precio) {
           </span>
 
         </label>
+        <label class="opcion-salsa">
+
+  <input
+    type="checkbox"
+    value="Valentina"
+  >
+
+  <span>
+    Valentina
+  </span>
+
+</label>
 
       </div>
 
@@ -302,6 +326,150 @@ function abrirConfiguracion(nombre, precio) {
 
         <span>
           🧀 Queso
+        </span>
+
+      </label>
+      <label class="opcion-salsa">
+
+  <input
+    type="checkbox"
+    name="aderezo-papas"
+    value="Valentina"
+  >
+
+  <span>
+    🌶️ Valentina
+  </span>
+
+</label>
+
+    </div>
+
+  `;
+  }
+  // ========================================
+  // BEBIDAS
+  // ========================================
+  else if (nombre === 'Bebidas') {
+    configuracionProducto.innerHTML = `
+
+    <h3>
+      Elige tu bebida
+    </h3>
+
+    <p class="ayuda-salsas">
+      
+    </p>
+
+    <div class="lista-salsas">
+
+      <label class="opcion-salsa">
+
+        <input
+          type="checkbox"
+          name="bebida"
+          value="Cerveza - Modelo"
+          data-precio="40"
+        >
+
+        <span>
+          🍺 Cerveza · Modelo · $40
+        </span>
+
+      </label>
+
+
+      <label class="opcion-salsa">
+
+        <input
+          type="checkbox"
+          name="bebida"
+          value="Cerveza - Victoria"
+          data-precio="40"
+        >
+
+        <span>
+          🍺 Cerveza · Victoria · $40
+        </span>
+
+      </label>
+
+
+      <label class="opcion-salsa">
+
+        <input
+          type="checkbox"
+          name="bebida"
+          value="Boing - Fresa"
+          data-precio="20"
+        >
+
+        <span>
+          🧃 Boing · Fresa · $20
+        </span>
+
+      </label>
+
+
+      <label class="opcion-salsa">
+
+        <input
+          type="checkbox"
+          name="bebida"
+          value="Boing - Mango"
+          data-precio="20"
+        >
+
+        <span>
+          🧃 Boing · Mango · $20
+        </span>
+
+      </label>
+
+
+      <label class="opcion-salsa">
+
+        <input
+          type="checkbox"
+          name="bebida"
+          value="Boing - Manzana"
+          data-precio="20"
+        >
+
+        <span>
+          🧃 Boing · Manzana · $20
+        </span>
+
+      </label>
+
+
+      <label class="opcion-salsa">
+
+        <input
+          type="checkbox"
+          name="bebida"
+          value="Boing - Guayaba"
+          data-precio="20"
+        >
+
+        <span>
+          🧃 Boing · Guayaba · $20
+        </span>
+
+      </label>
+
+
+      <label class="opcion-salsa">
+
+        <input
+          type="checkbox"
+          name="bebida"
+          value="Refresco - Coca-Cola"
+          data-precio="20"
+        >
+
+        <span>
+          🥤 Refresco · Coca-Cola · $20
         </span>
 
       </label>
@@ -699,8 +867,8 @@ function abrirConfiguracion(nombre, precio) {
 
 
       <p class="ayuda-salsas">
-        Elige 1.
-      </p>
+  Opcional.
+</p>
 
 
       <div class="lista-salsas">
@@ -777,8 +945,8 @@ function abrirConfiguracion(nombre, precio) {
 
 
       <p class="ayuda-salsas">
-        Elige 1.
-      </p>
+  Opcional.
+</p>
 
 
       <div class="lista-salsas">
@@ -851,9 +1019,9 @@ function abrirConfiguracion(nombre, precio) {
       </h3>
 
 
-      <p class="ayuda-salsas">
-        Elige 1.
-      </p>
+     <p class="ayuda-salsas">
+  Opcional.
+</p>
 
 
       <div class="lista-salsas">
@@ -893,7 +1061,7 @@ function abrirConfiguracion(nombre, precio) {
       <div
         id="extras-contenedor"
         style="
-          display:none;
+          display:block;
           margin-top:25px;
         "
       >
@@ -1100,12 +1268,6 @@ function abrirConfiguracion(nombre, precio) {
     const extrasContenedor = configuracionProducto.querySelector('#extras-contenedor');
 
     function revisarSeleccion() {
-      const untable = configuracionProducto.querySelector('input[name="untable"]:checked');
-
-      const fruta = configuracionProducto.querySelector('input[name="fruta"]:checked');
-
-      const topping = configuracionProducto.querySelector('input[name="topping"]:checked');
-
       if (untable && fruta && topping) {
         extrasContenedor.style.display = 'block';
       }
@@ -1240,6 +1402,30 @@ agregarConfigurado.addEventListener('click', () => {
     });
   }
   // ========================================
+  // BEBIDAS
+  // ========================================
+  else if (nombre === 'Bebidas') {
+    const bebidasSeleccionadas = Array.from(configuracionProducto.querySelectorAll('input[name="bebida"]:checked'));
+
+    if (bebidasSeleccionadas.length === 0) {
+      alert('Elige al menos una bebida.');
+
+      return;
+    }
+
+    bebidasSeleccionadas.forEach((bebida) => {
+      const precioBebida = Number(bebida.dataset.precio);
+
+      pedido.push({
+        nombre: bebida.value,
+
+        precio: precioBebida,
+
+        detalle: '',
+      });
+    });
+  }
+  // ========================================
   // CERILLOS
   // ========================================
   else if (nombre === 'Cerillos') {
@@ -1324,24 +1510,6 @@ agregarConfigurado.addEventListener('click', () => {
 
     const topping = configuracionProducto.querySelector('input[name="topping"]:checked');
 
-    if (!untable) {
-      alert('Elige un untable.');
-
-      return;
-    }
-
-    if (!fruta) {
-      alert('Elige una fruta.');
-
-      return;
-    }
-
-    if (!topping) {
-      alert('Elige un topping.');
-
-      return;
-    }
-
     const extras = Array.from(configuracionProducto.querySelectorAll('.extra-ingrediente:checked'));
 
     const extrasPrecio = extras.reduce((total, extra) => total + Number(extra.dataset.precio), 0);
@@ -1350,11 +1518,25 @@ agregarConfigurado.addEventListener('click', () => {
 
     const precioFinal = precioBase + extrasPrecio;
 
-    let detalle = `Untable: ${untable.value} · ` + `Fruta: ${fruta.value} · ` + `Topping: ${topping.value}`;
+    const detalles = [];
+
+    if (untable) {
+      detalles.push(`Untable: ${untable.value}`);
+    }
+
+    if (fruta) {
+      detalles.push(`Fruta: ${fruta.value}`);
+    }
+
+    if (topping) {
+      detalles.push(`Topping: ${topping.value}`);
+    }
 
     if (extrasNombres.length > 0) {
-      detalle += ` · Extras: ${extrasNombres.join(', ')}`;
+      detalles.push(`Extras: ${extrasNombres.join(', ')}`);
     }
+
+    const detalle = detalles.length > 0 ? detalles.join(' · ') : 'Sin ingredientes adicionales';
 
     pedido.push({
       nombre,
@@ -1364,7 +1546,6 @@ agregarConfigurado.addEventListener('click', () => {
       detalle,
     });
   }
-
   actualizarCarrito();
 
   modalConfiguracion.classList.remove('activo');
@@ -1472,12 +1653,12 @@ function iconoProducto(nombre) {
     return '🍗';
   }
 
-  if (nombre === 'Cerillos') {
-    return '🍺';
-  }
-
   if (nombre === 'Brochetas') {
     return '🍢';
+  }
+
+  if (nombre === 'Papas a la francesa') {
+    return '🍟';
   }
 
   if (nombre === 'Hamburguesas') {
@@ -1490,6 +1671,22 @@ function iconoProducto(nombre) {
 
   if (nombre === 'Waffles') {
     return '🧇';
+  }
+
+  if (nombre === 'Cerveza - Modelo' || nombre === 'Cerveza - Victoria') {
+    return '🍺';
+  }
+
+  if (nombre.startsWith('Boing -')) {
+    return '🧃';
+  }
+
+  if (nombre.startsWith('Refresco -')) {
+    return '🥤';
+  }
+
+  if (nombre === 'Cerillos') {
+    return '🍺';
   }
 
   return '🍴';
